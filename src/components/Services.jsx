@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Activity, Stethoscope, FileText, Users, Clock, Award, Heart, Shield } from 'lucide-react';
-
+import { Helmet } from 'react-helmet-async';
 // Mock data for demonstration
 const servicesData = [
   {
@@ -90,7 +90,7 @@ const DoctorsSlider = () => {
   };
 
   return (
-    <div className="py-16 px-5 bg-gradient-to-b from-white to-teal-50">
+    <section className="py-16 px-5 bg-gradient-to-b from-white to-teal-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-[#8B1538] mb-2">OUR EXPERT TEAM</h2>
@@ -102,7 +102,7 @@ const DoctorsSlider = () => {
 
         <div className="relative max-w-4xl mx-auto">
           <div className="overflow-hidden">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
@@ -124,7 +124,7 @@ const DoctorsSlider = () => {
                         <h3 className="text-3xl font-bold text-[#8B1538] mb-2">{doctor.name}</h3>
                         <p className="text-[#1B7C8C] text-lg font-semibold mb-4">{doctor.specialty}</p>
                         <p className="text-gray-600 leading-relaxed">
-                          Dedicated to providing exceptional healthcare billing solutions with a focus on accuracy, 
+                          Dedicated to providing exceptional healthcare billing solutions with a focus on accuracy,
                           compliance, and maximizing revenue for medical practices.
                         </p>
                         <button className="mt-6 bg-[#8B1538] text-white px-6 py-2 rounded-full hover:bg-[#6B0F28] transition-colors w-max">
@@ -161,15 +161,15 @@ const DoctorsSlider = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all ${
-                  index === currentIndex ? 'w-8 bg-[#8B1538]' : 'w-2 bg-gray-300'
-                }`}
+                className={`h-2 rounded-full transition-all ${index === currentIndex ? 'w-8 bg-[#8B1538]' : 'w-2 bg-gray-300'
+                  }`}
               />
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
   );
 };
 
@@ -196,85 +196,94 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="font-sans overflow-x-hidden">
-      {/* Services Section */}
-      <div
-        ref={servicesRef}
-        className="relative py-20 px-5 text-center bg-gradient-to-br from-[#8B1538] via-[#6B0F28] to-[#4B0A1C]"
-      >
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
-
-        <div className="relative z-10">
-          <div className="mb-12">
-            <div className="flex justify-center mb-4">
-              <Stethoscope className="w-16 h-16 text-[#1B7C8C]" strokeWidth={1.5} />
-            </div>
-            <h2 className="text-4xl text-white font-bold tracking-wider mb-3">
-              OUR SERVICES
-            </h2>
-            <div className="w-20 h-1 bg-[#1B7C8C] mx-auto"></div>
-            <p className="mt-4 text-white/90 max-w-2xl mx-auto">
-              Comprehensive healthcare billing solutions designed to optimize your revenue cycle
-            </p>
+    <>
+      <Helmet>
+        <title>Services | MedocBills</title>
+        <meta
+          name="description"
+          content="Explore MedocBills’ range of medical billing services — from claims submission and denial management to revenue cycle optimization."
+        />
+        <link rel="canonical" href="https://www.medocbills.com/services" />
+      </Helmet>
+      <section className="font-sans overflow-x-hidden">
+        {/* Services Section */}
+        <div
+          ref={servicesRef}
+          className="relative py-20 px-5 text-center bg-gradient-to-br from-[#8B1538] via-[#6B0F28] to-[#4B0A1C]"
+        >
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            }}></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {servicesData.map((service, index) => (
-              <div
-                key={index}
-                className={`group p-8 text-left bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-xl hover:bg-white/20 hover:border-[#1B7C8C] transition-all duration-700 ease-out transform ${
-                  isServicesVisible
+          <div className="relative z-10">
+            <div className="mb-12">
+              <div className="flex justify-center mb-4">
+                <Stethoscope className="w-16 h-16 text-[#1B7C8C]" strokeWidth={1.5} />
+              </div>
+              <h2 className="text-4xl text-white font-bold tracking-wider mb-3">
+                OUR SERVICES
+              </h2>
+              <div className="w-20 h-1 bg-[#1B7C8C] mx-auto"></div>
+              <p className="mt-4 text-white/90 max-w-2xl mx-auto">
+                Comprehensive healthcare billing solutions designed to optimize your revenue cycle
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              {servicesData.map((service, index) => (
+                <div
+                  key={index}
+                  className={`group p-8 text-left bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-xl hover:bg-white/20 hover:border-[#1B7C8C] transition-all duration-700 ease-out transform ${isServicesVisible
                     ? 'translate-y-0 opacity-100'
                     : 'translate-y-12 opacity-0'
-                }`}
-                style={{ transitionDelay: `${index * 0.15}s` }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#1B7C8C] flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Shield className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-[#1B7C8C] transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-base leading-relaxed text-white/90">
-                      {service.description}
-                    </p>
+                    }`}
+                  style={{ transitionDelay: `${index * 0.15}s` }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#1B7C8C] flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Shield className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-[#1B7C8C] transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-base leading-relaxed text-white/90">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="bg-gradient-to-r from-[#1B7C8C] to-[#157A89] py-16 px-5 text-white">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {statsData.map((stat, index) => (
+              <div key={index} className="flex flex-col items-center justify-center transform hover:scale-110 transition-transform">
+                <div className="mb-3">
+                  {index === 0 && <Activity className="w-10 h-10 text-white/80" />}
+                  {index === 1 && <Users className="w-10 h-10 text-white/80" />}
+                  {index === 2 && <Clock className="w-10 h-10 text-white/80" />}
+                  {index === 3 && <Award className="w-10 h-10 text-white/80" />}
+                </div>
+                <h3 className="text-5xl font-bold mb-2">
+                  <Counter value={stat.value} suffix={stat.suffix} />
+                </h3>
+                <p className="text-sm uppercase tracking-wider text-white/90">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Stats Section */}
-      <div className="bg-gradient-to-r from-[#1B7C8C] to-[#157A89] py-16 px-5 text-white">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {statsData.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center justify-center transform hover:scale-110 transition-transform">
-              <div className="mb-3">
-                {index === 0 && <Activity className="w-10 h-10 text-white/80" />}
-                {index === 1 && <Users className="w-10 h-10 text-white/80" />}
-                {index === 2 && <Clock className="w-10 h-10 text-white/80" />}
-                {index === 3 && <Award className="w-10 h-10 text-white/80" />}
-              </div>
-              <h3 className="text-5xl font-bold mb-2">
-                <Counter value={stat.value} suffix={stat.suffix} />
-              </h3>
-              <p className="text-sm uppercase tracking-wider text-white/90">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      
-      {/* Doctors Section with Slider */}
-      <DoctorsSlider />
-    </div>
+        {/* Doctors Section with Slider */}
+        <DoctorsSlider />
+      </section>
+    </>
   );
 };
 

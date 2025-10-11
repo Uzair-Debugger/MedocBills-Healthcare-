@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-[#fde2e2] w-full mt-auto font-inter">
@@ -25,23 +25,23 @@ const Footer = () => {
             <div>
               <h4 className="font-medium text-gray-800 text-base mb-4 relative after:absolute after:bottom-[-8px] after:left-0 after:w-16 after:h-[2px] after:bg-gray-400">Information</h4>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li><a href="#" className="hover:underline">About Us</a></li>
-                <li><a href="#" className="hover:underline">Facilities</a></li>
-                <li><a href="#" className="hover:underline">Our Services</a></li>
-                <li><a href="#" className="hover:underline">Patient Results</a></li>
+                <li><Link to='/' className='hover:underline'>About Us</Link></li>
+                <li><Link to='/contactus' className='hover:underline'>Contact Us</Link></li>
+                <li><Link to='/services' className='hover:underline'>Our Services</Link></li>
+                <li><Link to='/portfolio' className='hover:underline'>Patient Results</Link></li>
               </ul>
             </div>
 
             {/* Connect Section */}
-            <div>
+            <address>
               <h4 className="font-medium text-gray-800 text-base mb-4 relative after:absolute after:bottom-[-8px] after:left-0 after:w-16 after:h-[2px] after:bg-gray-400">Connect</h4>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li><a href="tel:8554794217" className="hover:underline">P: 855.479.4217</a></li>
                 <li><a href="tel:8885579724" className="hover:underline">F: 888.557.9724</a></li>
                 <li><a href="mailto:woundcare@personichealth.com" className="hover:underline">E: woundcare@personichealth.com</a></li>
-                <li><a href="#" className="hover:underline">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/syed-muhammad-uzair-563562325/" className="hover:underline">LinkedIn</a></li>
               </ul>
-            </div>
+            </address>
           </div>
         </div>
 

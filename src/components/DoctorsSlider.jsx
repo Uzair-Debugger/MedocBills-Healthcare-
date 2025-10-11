@@ -55,7 +55,7 @@ const DoctorsSlider = () => {
   }, [currentIndex]);
 
   return (
-    <div
+    <section
       className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden"
       role="region"
       aria-label="Our Dentists Slider"
@@ -126,7 +126,7 @@ const DoctorsSlider = () => {
           <ChevronRightIcon className="w-5 h-5 text-gray-700" />
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 
