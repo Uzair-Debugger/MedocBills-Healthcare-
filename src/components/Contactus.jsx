@@ -213,7 +213,7 @@ const App = () => {
                                         </svg>
                                     </div>
                                     <p className="font-semibold mb-1">Call Us</p>
-                                    <p className="text-sm text-white/80">(555) 123-4567</p>
+                                    <p className="text-sm text-white/80">+1 (929) 621 6059</p>
                                 </div>
                                 <div className="flex flex-col items-center">
                                     <div className="w-12 h-12 bg-[#1B7C8C] rounded-full flex items-center justify-center mb-3">
@@ -222,7 +222,7 @@ const App = () => {
                                         </svg>
                                     </div>
                                     <p className="font-semibold mb-1">Email Us</p>
-                                    <p className="text-sm text-white/80">info@medocbills.com</p>
+                                    <p className="text-sm text-white/80">support@medstates.com</p>
                                 </div>
                                 <div className="flex flex-col items-center">
                                     <div className="w-12 h-12 bg-[#1B7C8C] rounded-full flex items-center justify-center mb-3">
@@ -232,7 +232,7 @@ const App = () => {
                                         </svg>
                                     </div>
                                     <p className="font-semibold mb-1">Visit Us</p>
-                                    <p className="text-sm text-white/80">123 Healthcare Ave</p>
+                                    <p className="text-sm text-white/80">Medocbills</p>
                                 </div>
                             </div>
                         </div>

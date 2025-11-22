@@ -36,9 +36,8 @@ const Footer = () => {
             <address>
               <h4 className="font-medium text-gray-800 text-base mb-4 relative after:absolute after:bottom-[-8px] after:left-0 after:w-16 after:h-[2px] after:bg-gray-400">Connect</h4>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li><a href="tel:8554794217" className="hover:underline">P: 855.479.4217</a></li>
-                <li><a href="tel:8885579724" className="hover:underline">F: 888.557.9724</a></li>
-                <li><a href="mailto:woundcare@personichealth.com" className="hover:underline">E: woundcare@personichealth.com</a></li>
+                <li><a href="tel:8554794217" className="hover:underline">+1 (929) 621 6059</a></li>
+                <li><a href="mailto:woundcare@personichealth.com" className="hover:underline">support@medstates.com</a></li>
                 <li><a href="https://www.linkedin.com/in/syed-muhammad-uzair-563562325/" className="hover:underline">LinkedIn</a></li>
               </ul>
             </address>

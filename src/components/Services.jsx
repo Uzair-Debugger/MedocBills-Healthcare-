@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Activity, Stethoscope, FileText, Users, Clock, Award, Heart, Shield } from 'lucide-react';
+import { Activity, Stethoscope, FileText, Users, Clock, Award, Heart, Shield, ChevronDown } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 // Mock data for demonstration
 const servicesData = [
@@ -13,11 +13,11 @@ const servicesData = [
   },
   {
     title: "Claims Processing",
-    description: "Efficient claims management with high first-pass approval rates and quick reimbursements."
+    description: "We efficiently process claims, monitor approvals, and resolve denials through prompt corrections and appeals."
   },
   {
     title: "Compliance Support",
-    description: "Stay compliant with healthcare regulations including HIPAA, ICD-10, and insurance requirements."
+    description: "Stay secure and audit-ready with HIPAA-aligned workflows, regulatory guidance, and robust data protection."
   }
 ];
 
@@ -45,6 +45,31 @@ const doctorsData = [
     image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=300&h=400&fit=crop&crop=face"
   }
 ];
+
+
+const faqs = [
+  {
+    question: 'How do we get started?',
+    answer: 'Getting started is simple. Share your practice details, including your specialty, practice model, and any specific concerns. Let us know the best time to contact you so we can prepare a tailored healthcare management solution designed specifically for your practice.'
+  },
+  {
+    question: 'Why should I trust MedocBills for billing?',
+    answer: 'MedocBills serves a wide range of medical specialties, providing customized billing solutions that comply with HIPAA and industry standards. Our trained and experienced team has consistently helped practices improve revenue, reduce denials, and eliminate the stress of managing an in-house billing department.'
+  },
+  {
+    question: 'What makes MedocBills different from other billing services?',
+    answer: 'We operate as an extension of your practice, with hands-on management that ensures smooth operations and maximized revenue. Our focus is on reducing your revenue cycle time while delivering measurable results. With MedocBills, your success is our top priority — and our proven track record demonstrates it.'
+  },
+  {
+    question: 'Is MedocBills ICD-10 ready?',
+    answer: 'Yes. We are fully ICD-10 compliant and ensure accurate coding for every claim.'
+  },
+  {
+    question: 'What reports does MedocBills provide?',
+    answer: 'We provide monthly reports covering account activity, aging, and other key metrics. Custom reports can also be designed based on your needs. We recommend monthly review meetings to compare past and current collections, track trends, evaluate practice performance, and measure how MedocBills is contributing to your practice’s success.'
+  }
+];
+
 
 const Counter = ({ value, duration = 2000, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -81,6 +106,7 @@ const Counter = ({ value, duration = 2000, suffix = "" }) => {
 const DoctorsSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % doctorsData.length);
   };
@@ -176,7 +202,7 @@ const DoctorsSlider = () => {
 const Services = () => {
   const servicesRef = useRef(null);
   const [isServicesVisible, setIsServicesVisible] = useState(false);
-
+  const [openFAQ, setOpenFAQ] = useState(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -282,6 +308,40 @@ const Services = () => {
 
         {/* Doctors Section with Slider */}
         <DoctorsSlider />
+
+
+
+        {/* FAQ Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#8B1538] mb-6">Frequently Asked Questions</h2>
+            </div>
+
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div key={index} className="border border-gray-200 rounded-lg">
+                  <button
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                    onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                  >
+                    <span className="font-semibold text-gray-900">{faq.question}</span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-gray-500 transform transition-transform ${openFAQ === index ? 'rotate-180' : ''
+                        }`}
+                    />
+                  </button>
+                  {openFAQ === index && (
+                    <div className="px-6 pb-4">
+                      <p className="text-gray-600">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
       </section>
     </>
   );

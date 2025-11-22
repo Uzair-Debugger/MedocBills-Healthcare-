@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SquareActivity, Hospital, BriefcaseMedical, Bed, Stethoscope, ShieldPlus, Siren } from "lucide-react";
 import { Helmet } from "react-helmet-async";
-import { logo } from '../assets/logo.png'
+// import { logo } from '../assets/logo.png'
 
 // Mock images - replace with your actual imports
 const Main = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop";
@@ -10,7 +10,7 @@ const Second = "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=8
 
 const clientBase = {
     heading: "Trusted by Healthcare Providers Nationwide",
-    paragraph: "Join thousands of medical practices that have streamlined their billing operations and increased revenue with our comprehensive healthcare IT solutions.",
+    paragraph: "Clinics and practices nationwide rely on MedocBills to simplify billing, reduce denials, and consistently boost revenue with dependable end-to-end RCM solutions.",
     buttonText: "Get Started Today",
     icons: [Hospital, BriefcaseMedical, Stethoscope, ShieldPlus, Bed, Siren]
 };
@@ -23,21 +23,39 @@ const successRate = [
 
 const whyToChoose = {
     heading: "Why Healthcare Providers Choose MedocBills",
-    para1: "We combine cutting-edge technology with deep healthcare expertise to deliver billing solutions that maximize your revenue while reducing administrative burden. Our AI-powered platform ensures accuracy, compliance, and efficiency.",
-    para2: "With over 15 years of experience in healthcare billing and IT solutions, we understand the unique challenges medical practices face. Our dedicated team works as an extension of your practice to optimize every aspect of your revenue cycle."
+    points: [
+        {
+            title: "We Reduce Your Administrative Burden",
+            para: "Focus on patients — we take care of the billing complexities."
+        },
+        {
+            title: "We Improve Your Revenue Performance",
+            para: "Optimized workflows and expert coding help you capture every dollar you’ve earned."
+        },
+        {
+            title: "We Deliver Consistency",
+            para: "From claim submission to payment posting, our process ensures predictable and reliable results."
+        },
+        {
+            title: "We Offer a Personal Touch",
+            para: "Your practice gets a dedicated billing partner, not a generic support desk."
+        }
+    ]
 };
 
+
 const services = [
-    { icon: SquareActivity, title: "Medical Billing", description: "Comprehensive billing services with 98% first-pass claim approval rate" },
-    { icon: Hospital, title: "Practice Management", description: "Streamline operations with our integrated practice management system" },
-    { icon: BriefcaseMedical, title: "Revenue Cycle", description: "End-to-end revenue cycle management to maximize collections" },
-    { icon: ShieldPlus, title: "Compliance Support", description: "Stay compliant with HIPAA, ICD-10, and insurance regulations" }
+    { icon: SquareActivity, title: "Medical Billing", description: "Accurate billing and clean claims that get you paid faster." },
+    { icon: Hospital, title: "Practice Management", description: "Streamlined workflows that keep your practice efficient and organized." },
+    { icon: BriefcaseMedical, title: "Revenue Cycle Management", description: "Optimized financial processes for stronger, predictable cash flow." },
+    { icon: ShieldPlus, title: "Compliance Support", description: "HIPAA-aligned guidance that keeps your practice protected and audit-ready." }
 ];
 
 const testimonials = [
-    { name: "Dr. Sarah Martinez", text: "MedocBills transformed our billing process. We've seen a 40% increase in collections and our staff can focus on patient care instead of paperwork." },
-    { name: "Dr. Michael Chen", text: "The best decision we made for our practice. Their team is responsive, knowledgeable, and truly cares about our success." },
-    { name: "Dr. Emily Thompson", text: "Outstanding service! Our denial rate dropped significantly and cash flow improved dramatically within the first quarter." }
+    { name: "Family Practice, Texas", text: "MedocBills has completely transformed our billing process. Our claim approvals are faster, and denials have dropped noticeably. Highly recommended!" },
+    { name: "Pediatrics Clinic, Florida", text: "Their team is responsive, accurate, and easy to work with. We finally have clear visibility into our revenue cycle." },
+    { name: "Specialty Clinic, California", text: "Outsourcing to MedocBills has saved us so much time. Our collections improved within the first few months." },
+    { name: "Internal Medicine Practice, New York", text: "Professional, dependable, and detail-oriented. Their billing support allows us to focus fully on patient care." }
 ];
 
 const testimonialVariants = {
@@ -59,15 +77,15 @@ const Hero = () => {
 
     const slides = [
         {
-            title: "Advanced Medical Billing Solutions",
-            subtitle: "Powered by Healthcare IT Excellence",
-            description: "Maximize revenue, reduce denials, and enhance operational efficiency with our comprehensive medical billing and practice management solutions. Let us handle the complexity while you focus on patient care.",
+            title: "Increase Your Practice Revenue With Accurate & Fast Medical Billing",
+            description: "Focus on exceptional patient care while we manage claims, coding, denials, and collections with unmatched accuracy.",
+            button: "Get Audit",
             image: Main,
         },
         {
-            title: "Smart Revenue Cycle Management",
-            subtitle: "Technology That Works for Your Practice",
-            description: "Our AI-powered platform automates claim submissions, tracks payments in real-time, and identifies revenue optimization opportunities—delivering measurable results from day one.",
+            title: "Reliable Claim Management That Boosts Your Cash Flow",
+            description: "From clean claim submission to denial follow-up, we ensure you get paid on time, every time.",
+            button: "Start Now",
             image: Second,
         },
     ];
@@ -159,7 +177,7 @@ const Hero = () => {
                     property="og:description"
                     content="Fast, accurate, and secure billing for healthcare professionals."
                 />
-                <meta property="og:image" content="/assets/logo.png" />
+                <meta property="og:image" content="/src/assets/logo.png" />
                 <meta property="og:url" content="https://www.medocbills.com/" />
                 <meta property="og:site_name" content="MedocBills" />
 
@@ -170,7 +188,7 @@ const Hero = () => {
                     name="twitter:description"
                     content="Fast, accurate, and secure billing for healthcare professionals."
                 />
-                <meta name="twitter:image" content="/assets/logo.png" />
+                <meta name="twitter:image" content="/src/assets/logo.png" />
 
                 {/* ===== Structured Data (Schema.org JSON-LD) ===== */}
                 <script type="application/ld+json">
@@ -238,11 +256,8 @@ const Hero = () => {
                                                 {slides[currentSlide].description}
                                             </p>
                                             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 mt-4">
-                                                <button className="w-full sm:w-auto rounded-full bg-[#8B1538] text-white py-2 px-6 hover:bg-[#6B0F28] transition-colors">
-                                                    Request a Demo
-                                                </button>
-                                                <button className="w-full sm:w-auto rounded-full border-2 border-[#1B7C8C] text-[#1B7C8C] py-2 px-6 hover:bg-[#1B7C8C] hover:text-white transition-colors">
-                                                    Learn More
+                                                <button className={`w-full sm:w-auto rounded-full cursor-pointer py-2 px-6  ${slides[currentSlide].button === "Start Now" ? `bg-white text-[#1B7C8C] border border-[#1B7C8C] hover:text-[#136d7b] hover:border-[#136d7b]` : `text-white bg-[#8B1538] hover:bg-[#6B0F28]`} transition-colors `}>
+                                                    {slides[currentSlide].button}
                                                 </button>
                                             </div>
                                         </div>
@@ -298,9 +313,19 @@ const Hero = () => {
                         <h1 className="mb-6 text-3xl font-extrabold leading-tight text-[#8B1538] md:text-4xl lg:text-5xl">
                             {whyToChoose.heading}
                         </h1>
-                        <p className="mb-6 text-gray-700">{whyToChoose.para1}</p>
-                        <p className="text-gray-700">{whyToChoose.para2}</p>
-                        <button className="mt-8 self-start rounded-full bg-[#1B7C8C] px-6 py-3 font-semibold text-white shadow-lg transition-colors hover:bg-[#157A89]">
+                        <ul className="my-4 space-y-3">
+                            {whyToChoose.points.map((item, index) => (
+                                <li key={index} className="pl-6 relative my-5">
+                                    {/* Custom bullet */}
+                                    <span className="absolute left-0 top-2 w-2 h-2 bg-[#8B1538] rounded-full"></span>
+
+                                    <h3 className="font-medium text-[#1B7C8C]">{item.title}</h3>
+                                    <p>{item.para}</p>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <button className="mt-8 self-start rounded-full bg-[#1B7C8C] px-6 py-3 cursor-pointer font-semibold text-white shadow-lg transition-colors hover:bg-[#157A89]">
                             Schedule a Consultation
                         </button>
                     </div>
@@ -308,11 +333,11 @@ const Hero = () => {
 
                 {/* Services Section */}
                 <div className="mt-20 flex w-full max-w-7xl flex-col items-center text-center">
-                    <h2 className="mb-4 text-4xl font-extrabold text-[#8B1538]">Our Healthcare Solutions</h2>
-                    <p className="mb-12 max-w-2xl text-center text-gray-600">
+                    <h2 className="mb-10 text-4xl font-extrabold text-[#8B1538]">Our Healthcare Solutions</h2>
+                    {/* <p className="mb-12 max-w-2xl text-center text-gray-600">
                         Comprehensive medical billing and IT services designed to optimize your practice's financial performance and operational efficiency.
-                    </p>
-                    <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                    </p> */}
+                    <div className="grid my-10 w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                         {services.map((service, index) => (
                             <div key={index} className="flex flex-col items-center p-4 hover:transform hover:scale-105 transition-transform">
                                 <service.icon size={48} strokeWidth={1} className="mb-4 text-[#1B7C8C]" />
@@ -324,7 +349,7 @@ const Hero = () => {
                 </div>
 
                 {/* Testimonials Section */}
-                <div className="relative flex min-h-screen items-center justify-center overflow-hidden font-sans w-full mt-20 py-10 bg-gradient-to-br from-[#8B1538] to-[#4B0A1C]">
+                <div className="relative flex min-h-screen items-center justify-center overflow-hidden font-sans w-full mt-10 py-10 bg-gradient-to-br from-[#8B1538] to-[#4B0A1C]">
                     <div className="absolute inset-0 opacity-10">
                         <div className="absolute inset-0" style={{
                             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
