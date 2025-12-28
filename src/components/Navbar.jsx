@@ -19,14 +19,14 @@ const Navbar = () => {
     <header className="sticky top-0 z-50">
 
       <nav aria-label="top-nav" className=" flex bg-blue-500 text-white justify-between text-sm px-5 py-1">
-        <div className="flex gap-7">
+        <div className="sm:flex gap-7">
 
-          <div className="flex items-center gap-1 text-[11px]"><Mail width={20} />Younas@gmail.com</div>
-          <div className="flex items-center gap-1 text-[11px]"><PhoneIcon width={20} />Younas@gmail.com</div>
+          <div className="flex items-center gap-1 text-[11px]"><Mail width={20} />info@medocbills.com</div>
+          <div className="flex items-center gap-1 text-[11px]"><PhoneIcon width={20} />571-520-2235</div>
 
         </div>
 
-        <div className="flex gap-7">
+        <div className="flex sm:gap-10 gap-2">
           <div><Instagram width={20} /></div>
           <div><Facebook width={20} /></div>
           <div><Twitter width={20} /></div>
@@ -104,7 +104,7 @@ const Navbar = () => {
                   to={item.path}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `list-none p-1.5 font-semibold cursor-pointer hover:text-[#8B1538] ${isActive ? "text-[#8B1538]" : ""
+                    `list-none p-1.5 font-light cursor-pointer hover:text-[#8B1538] ${isActive ? "text-[#8B1538]" : ""
                     }`
                   }
                 >
