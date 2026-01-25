@@ -64,10 +64,10 @@ const DoctorsSlider = () => {
     >
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl text-[#00a99d] font-bold tracking-wide mb-2">
+        <h2 className="text-4xl md:text-5xl text-teal-brand font-bold tracking-wide mb-2">
           OUR DENTISTS
         </h2>
-        <div className="w-16 h-1 bg-[#00a99d] mx-auto rounded-full shadow-sm"></div>
+        <div className="w-16 h-1 bg-teal-brand mx-auto rounded-full shadow-sm"></div>
       </div>
 
       {/* Slider Container */}
@@ -97,10 +97,10 @@ const DoctorsSlider = () => {
                     <h3 className="text-xl font-bold text-gray-800 mb-1">
                       {doctor.name}
                     </h3>
-                    <p className="text-[#00a99d] font-semibold text-sm mb-2 flex-grow">
+                    <p className="text-secondary font-semibold text-sm mb-2 flex-grow">
                       {doctor.specialization}
                     </p>
-                    <button className="mt-auto self-start text-sm text-gray-500 hover:text-[#00a99d] transition-colors">
+                    <button className="mt-auto self-start text-sm text-gray-500 hover:text-secondary transition-colors">
                       View Profile →
                     </button>
                   </div>
@@ -113,18 +113,32 @@ const DoctorsSlider = () => {
         {/* Navigation Buttons */}
         <button
           onClick={prevSlide}
-          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg border border-gray-200 rounded-full p-2.5 transition-all duration-200 hover:shadow-xl z-10"
-          aria-label="Previous slide"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white text-primary p-3 rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors z-10"
         >
-          <ChevronLeftIcon className="w-5 h-5 text-gray-700" />
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
         </button>
+
         <button
           onClick={nextSlide}
-          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg border border-gray-200 rounded-full p-2.5 transition-all duration-200 hover:shadow-xl z-10"
-          aria-label="Next slide"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white text-primary p-3 rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors z-10"
         >
-          <ChevronRightIcon className="w-5 h-5 text-gray-700" />
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
         </button>
+
+        <div className="flex justify-center mt-6 gap-2">
+          {doctorsData.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`h-2 rounded-full transition-all ${index === currentIndex ? 'w-8 bg-primary' : 'w-2 bg-gray-300'
+                }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -108,7 +108,7 @@ export default function PortfolioPage() {
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="flex-1 text-center lg:text-left">
-                <h1 className="text-4xl lg:text-6xl font-bold text-[#8B1538] mb-6">
+                <h1 className="text-4xl lg:text-6xl font-bold text-primary mb-6">
                   MedocBills Healthcare
                 </h1>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -139,7 +139,7 @@ export default function PortfolioPage() {
         <section id="about" className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#8B1538] mb-6">About</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">About</h2>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
@@ -262,7 +262,7 @@ export default function PortfolioPage() {
         <section id="services" className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#8B1538] mb-6">Services</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Services</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 I offer comprehensive creative services to help bring your vision to life
               </p>
@@ -329,7 +329,7 @@ export default function PortfolioPage() {
         <section id="resume" className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#8B1538] mb-6">Resume</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Resume</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
                 Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
@@ -470,7 +470,7 @@ export default function PortfolioPage() {
         <section className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#8B1538] mb-6">Frequently Asked Questions</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Frequently Asked Questions</h2>
             </div>
 
             <div className="space-y-4">
@@ -498,7 +498,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-16 bg-gradient-to-br from-[#8B1538] to-[#ff014d]">
+        <section id="contact" className="py-16 bg-gradient-to-br from-primary to-accent-red">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="text-white">
@@ -578,7 +578,7 @@ export default function PortfolioPage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-[#ad204a] text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
+                    className="w-full bg-primary-medium text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
                   >
                     <Send className="w-5 h-5" />
                     <span>Send Message</span>

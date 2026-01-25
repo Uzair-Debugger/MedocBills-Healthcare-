@@ -19,14 +19,14 @@ const Navbar = () => {
     <header className="sticky top-0 z-50">
 
       <nav aria-label="top-nav" className=" flex bg-blue-500 text-white justify-between text-sm px-5 py-1">
-        <div className="sm:flex gap-7">
+        <div className="flex gap-7">
 
-          <div className="flex items-center gap-1 text-[11px]"><Mail width={20} />info@medocbills.com</div>
-          <div className="flex items-center gap-1 text-[11px]"><PhoneIcon width={20} />571-520-2235</div>
+          <div title={"Email: info@medocbills.com"} className="flex items-center gap-1 text-[11px]"><Mail width={20} /><span className="text-white sm:block">info@medocbills.com</span></div>
+          <div title={"Phone: 571-520-2235"} className="flex items-center gap-1 text-[11px]"><PhoneIcon width={20} /><span className="text-white sm:block">571-520-2235</span></div>
 
         </div>
 
-        <div className="flex sm:gap-10 gap-2">
+        <div className="sm:flex hidden sm:gap-10 gap-2">
           <div><Instagram width={20} /></div>
           <div><Facebook width={20} /></div>
           <div><Twitter width={20} /></div>
@@ -50,10 +50,10 @@ const Navbar = () => {
                   key={item.path}
                   to={item.path}
                   className={({ isActive }) =>
-                    `relative font-light transition-colors duration-300 hover:text-[#8B1538]
-     ${isActive ? "text-[#8B1538]" : ""}
+                    `relative font-light transition-colors duration-300 hover:text-primary
+     ${isActive ? "text-primary" : ""}
      after:content-[''] after:absolute after:left-0 after:-bottom-1
-     after:h-[1px] after:w-0 after:bg-[#8B1538]
+     after:h-[1px] after:w-0 after:bg-primary
      after:transition-all after:duration-300
      hover:after:w-full`
                   }
@@ -68,11 +68,11 @@ const Navbar = () => {
               <NavLink
                 aria-label="View Portfolio"
                 to='/contactus'
-                className="flex gap-2 font-light mx-2 p-2 px-4 cursor-pointer text-white bg-[#8B1538]
-                hover:scale-90 duration-300 hover:bg-[#1B7C8C]"
+                className="flex gap-2 font-light mx-2 p-2 px-4 cursor-pointer text-white bg-primary
+              hover:scale-90 duration-300 hover:bg-secondary"
               >
                 Free Consultation
-                <ArrowRight/>
+                <ArrowRight />
               </NavLink>
 
             </div>
@@ -104,7 +104,7 @@ const Navbar = () => {
                   to={item.path}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `list-none p-1.5 font-light cursor-pointer hover:text-[#8B1538] ${isActive ? "text-[#8B1538]" : ""
+                    `list-none p-1.5 font-light cursor-pointer hover:text-primary ${isActive ? "text-primary" : ""
                     }`
                   }
                 >
@@ -115,10 +115,10 @@ const Navbar = () => {
               <NavLink
                 aria-label="View Portfolio"
                 to='/portfolio'
-                className="flex gap-2 font-normal mx-2 p-2 px-4 cursor-pointer text-white bg-[#8B1538]"
+                className="flex gap-2 font-normal mx-2 p-2 px-4 cursor-pointer text-white bg-primary"
               >
                 Free Consultation
-                <ArrowRight/>
+                <ArrowRight />
               </NavLink>
 
             </div>

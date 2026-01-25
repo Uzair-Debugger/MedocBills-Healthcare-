@@ -119,8 +119,8 @@ const DoctorsSlider = () => {
     <section className="py-16 px-5 bg-gradient-to-b from-white to-teal-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#8B1538] mb-2">OUR EXPERT TEAM</h2>
-          <div className="w-16 h-1 bg-[#1B7C8C] mx-auto"></div>
+          <h2 className="text-4xl font-bold text-primary mb-2">OUR EXPERT TEAM</h2>
+          <div className="w-16 h-1 bg-secondary mx-auto"></div>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
             Meet our dedicated professionals committed to optimizing your healthcare revenue cycle
           </p>
@@ -145,15 +145,15 @@ const DoctorsSlider = () => {
                       </div>
                       <div className="md:w-3/5 p-8 flex flex-col justify-center bg-gradient-to-br from-white to-teal-50">
                         <div className="mb-4">
-                          <Heart className="w-12 h-12 text-[#1B7C8C] mb-3" />
+                          <Heart className="w-12 h-12 text-secondary mb-3" />
                         </div>
-                        <h3 className="text-3xl font-bold text-[#8B1538] mb-2">{doctor.name}</h3>
-                        <p className="text-[#1B7C8C] text-lg font-semibold mb-4">{doctor.specialty}</p>
+                        <h3 className="text-3xl font-bold text-primary mb-2">{doctor.name}</h3>
+                        <p className="text-secondary text-lg font-semibold mb-4">{doctor.specialty}</p>
                         <p className="text-gray-600 leading-relaxed">
                           Dedicated to providing exceptional healthcare billing solutions with a focus on accuracy,
                           compliance, and maximizing revenue for medical practices.
                         </p>
-                        <button className="mt-6 bg-[#8B1538] text-white px-6 py-2 rounded-full hover:bg-[#6B0F28] transition-colors w-max">
+                        <button className="mt-6 bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition-colors w-max">
                           View Profile
                         </button>
                       </div>
@@ -166,7 +166,7 @@ const DoctorsSlider = () => {
 
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white text-[#8B1538] p-3 rounded-full shadow-lg hover:bg-[#8B1538] hover:text-white transition-colors z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white text-primary p-3 rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors z-10"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -175,7 +175,7 @@ const DoctorsSlider = () => {
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white text-[#8B1538] p-3 rounded-full shadow-lg hover:bg-[#8B1538] hover:text-white transition-colors z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white text-primary p-3 rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors z-10"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -187,7 +187,7 @@ const DoctorsSlider = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all ${index === currentIndex ? 'w-8 bg-[#8B1538]' : 'w-2 bg-gray-300'
+                className={`h-2 rounded-full transition-all ${index === currentIndex ? 'w-8 bg-primary' : 'w-2 bg-gray-300'
                   }`}
               />
             ))}
@@ -235,7 +235,7 @@ const Services = () => {
         {/* Services Section */}
         <div
           ref={servicesRef}
-          className="relative py-20 px-5 text-center bg-gradient-to-br from-[#8B1538] via-[#6B0F28] to-[#4B0A1C]"
+          className="relative py-20 px-5 text-center bg-gradient-to-br from-primary via-primary-dark to-primary-deep"
         >
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
@@ -246,12 +246,12 @@ const Services = () => {
           <div className="relative z-10">
             <div className="mb-12">
               <div className="flex justify-center mb-4">
-                <Stethoscope className="w-16 h-16 text-[#1B7C8C]" strokeWidth={1.5} />
+                <Stethoscope className="w-16 h-16 text-secondary" strokeWidth={1.5} />
               </div>
               <h2 className="text-4xl text-white font-bold tracking-wider mb-3">
                 OUR SERVICES
               </h2>
-              <div className="w-20 h-1 bg-[#1B7C8C] mx-auto"></div>
+              <div className="w-20 h-1 bg-secondary mx-auto"></div>
               <p className="mt-4 text-white/90 max-w-2xl mx-auto">
                 Comprehensive healthcare billing solutions designed to optimize your revenue cycle
               </p>
@@ -261,18 +261,18 @@ const Services = () => {
               {servicesData.map((service, index) => (
                 <div
                   key={index}
-                  className={`group p-8 text-left bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-xl hover:bg-white/20 hover:border-[#1B7C8C] transition-all duration-700 ease-out transform ${isServicesVisible
+                  className={`group p-8 text-left bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-xl hover:bg-white/20 hover:border-secondary transition-all duration-700 ease-out transform ${isServicesVisible
                     ? 'translate-y-0 opacity-100'
                     : 'translate-y-12 opacity-0'
                     }`}
                   style={{ transitionDelay: `${index * 0.15}s` }}
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#1B7C8C] flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Shield className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-[#1B7C8C] transition-colors">
+                      <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-secondary transition-colors">
                         {service.title}
                       </h3>
                       <p className="text-base leading-relaxed text-white/90">
@@ -287,7 +287,7 @@ const Services = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="bg-gradient-to-r from-[#1B7C8C] to-[#157A89] py-16 px-5 text-white">
+        <div className="bg-gradient-to-r from-secondary to-secondary-hover py-16 px-5 text-white">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {statsData.map((stat, index) => (
               <div key={index} className="flex flex-col items-center justify-center transform hover:scale-110 transition-transform">
@@ -315,7 +315,7 @@ const Services = () => {
         <section className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#8B1538] mb-6">Frequently Asked Questions</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Frequently Asked Questions</h2>
             </div>
 
             <div className="space-y-4">

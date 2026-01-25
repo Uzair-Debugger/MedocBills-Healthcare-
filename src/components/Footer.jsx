@@ -17,11 +17,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#fde2e2] text-black py-12 px-6">
+    <footer className="bg-soft-pink text-black py-12 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
 
         {/* Left Column - Logo & Social */}
-        <div className="border-2 border-[#1B7C8C] rounded-lg p-5">
+        <div className="border-2 border-secondary rounded-lg p-5">
           <img
             src={logo}
             alt="MedocBills Logo"
@@ -34,13 +34,13 @@ export default function Footer() {
           </p>
 
           <div className="flex justify-center gap-3">
-            <a className="w-9 h-9 cursor-pointer bg-[#1B7C8C] rounded-full flex items-center justify-center hover:bg-[#176874] transition">
+            <a className="w-9 h-9 cursor-pointer bg-secondary rounded-full flex items-center justify-center hover:bg-secondary-dark transition">
               <Facebook size={18} color="white" />
             </a>
-            <a className="w-9 h-9 cursor-pointer bg-[#1B7C8C] rounded-full flex items-center justify-center hover:bg-[#176874] transition">
+            <a className="w-9 h-9 cursor-pointer bg-secondary rounded-full flex items-center justify-center hover:bg-secondary-dark transition">
               <Linkedin size={18} color="white" />
             </a>
-            <a className="w-9 h-9 cursor-pointer bg-[#1B7C8C] rounded-full flex items-center justify-center hover:bg-[#176874] transition">
+            <a className="w-9 h-9 cursor-pointer bg-secondary rounded-full flex items-center justify-center hover:bg-secondary-dark transition">
               <Youtube size={18} color="white" />
             </a>
           </div>
@@ -49,7 +49,7 @@ export default function Footer() {
         {/* Column 2 - Proudly Serving */}
         <div>
           <h3 className="text-xl font-bold mb-4">Proudly Serving</h3>
-          <ul className="space-y-2 text-[#8B1538] font-light">
+          <ul className="space-y-2 text-primary font-light">
             {[
               'Private Practices',
               'Individual Doctor Office',
@@ -61,7 +61,7 @@ export default function Footer() {
             ].map((item) => (
               <li
                 key={item}
-                className="hover:text-[#1B7C8C] transition cursor-pointer"
+                className="hover:text-secondary transition cursor-pointer"
               >
                 {item}
               </li>
@@ -75,11 +75,11 @@ export default function Footer() {
           <div className="space-y-4 text-neutral-700">
             <div>
               <p className="font-semibold">Monday – Friday</p>
-              <p className="text-[#8B1538]">8:30 AM – 5:00 PM</p>
+              <p className="text-primary">8:30 AM – 5:00 PM</p>
             </div>
             <div>
               <p className="font-semibold">Saturday & Sunday</p>
-              <p className="text-[#8B1538]">Closed</p>
+              <p className="text-primary">Closed</p>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function Footer() {
 
             <button
               onClick={handleSubmit}
-              className="w-full cursor-pointer bg-[#8B1538] hover:bg-[#19717f] text-white font-semibold py-3 rounded transition"
+              className="w-full cursor-pointer bg-primary hover:bg-secondary-accent text-white font-semibold py-3 rounded transition"
             >
               Send Message
             </button>
@@ -123,24 +123,24 @@ export default function Footer() {
 
             <div className="space-y-4 text-sm text-neutral-700">
               <div className="flex items-start gap-3">
-                <Phone size={18} className="text-[#1B7C8C] mt-1" />
-                <a href="tel:571-520-2235" className="hover:text-[#1B7C8C] transition">
+                <Phone size={18} className="text-secondary mt-1" />
+                <a href="tel:571-520-2235" className="hover:text-secondary transition">
                   571-520-2235
                 </a>
               </div>
 
               <div className="flex items-start gap-3">
-                <Mail size={18} className="text-[#1B7C8C] mt-1" />
+                <Mail size={18} className="text-secondary mt-1" />
                 <a
                   href="mailto:info@medocbills.com"
-                  className="hover:text-[#1B7C8C] transition break-all"
+                  className="hover:text-secondary transition break-all"
                 >
                   info@medocbills.com
                 </a>
               </div>
 
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-[#1B7C8C] mt-1" />
+                <MapPin size={18} className="text-secondary mt-1" />
                 <address className="not-italic leading-relaxed">
                   835 Wilshire Blvd<br />
                   Ste 500 #513<br />

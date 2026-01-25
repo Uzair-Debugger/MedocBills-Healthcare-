@@ -53,7 +53,7 @@ const RequestCallBackForm = () => {
         <div className="min-h-screen bg-white font-sans text-gray-800 my-5">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Left Side - Form */}
-                <div className="bg-[#00a7e1] p-8 md:p-12 lg:p-16">
+                <div className="bg-brand-blue p-8 md:p-12 lg:p-16">
                     <h1 className="text-3xl font-bold text-white mb-10">
                         Request For A Call Back
                     </h1>
@@ -131,35 +131,39 @@ const RequestCallBackForm = () => {
                         ></textarea>
 
                         {/* reCAPTCHA */}
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white p-4 rounded-md">
-                            <div className="flex items-center">
-                                <input
-                                    type="checkbox"
-                                    id="notRobot"
-                                    name="notRobot"
-                                    checked={formData.notRobot}
-                                    onChange={handleChange}
-                                    className="h-5 w-5 text-[#00a7e1] rounded focus:ring-[#00a7e1]"
-                                    required
-                                />
-                                <label htmlFor="notRobot" className="ml-3 text-gray-700">
-                                    I'm not a robot
-                                </label>
-                            </div>
-                            <div className="flex items-center ml-0 sm:ml-auto">
-                                <div className="bg-[#4285f4] text-white text-2xl w-10 h-10 flex items-center justify-center rounded-l">
-                                    ↻
-                                </div>
-                                <div className="bg-gray-100 px-3 py-2 border border-gray-300 rounded-r">
-                                    <div className="text-sm font-medium">reCAPTCHA</div>
-                                    <div className="text-xs text-gray-600">Privacy - Terms</div>
-                                </div>
-                            </div>
+                    <div className="flex h-16 w-full items-center justify-between rounded border border-gray-300 bg-white p-2 shadow-sm sm:w-[300px]">
+                      <div className="flex items-center gap-2">
+                        <div className="flex h-6 w-6 items-center justify-center rounded-sm border-2 border-gray-300 bg-white"></div>
+                        <span className="text-sm text-gray-600">
+                          I'm not a robot
+                        </span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="h-8 w-8 bg-google-blue p-1">
+                          <img
+                            src="https://www.gstatic.com/recaptcha/api2/logo_48.png"
+                            alt="reCAPTCHA logo"
+                            className="h-full w-full object-contain"
+                          />
                         </div>
+                        <span className="text-[10px] text-gray-500">
+                          reCAPTCHA
+                        </span>
+                        <div className="text-[8px] text-gray-500">
+                          <a href="#" className="hover:underline">
+                            Privacy
+                          </a>{" "}
+                          -{" "}
+                          <a href="#" className="hover:underline">
+                            Terms
+                          </a>
+                        </div>
+                      </div>
+                    </div>
 
                         <button
                             type="submit"
-                            className="w-full bg-white text-[#00a7e1] font-bold py-3 rounded-md hover:bg-gray-100 transition"
+                            className="w-full bg-white text-brand-blue font-bold py-3 rounded-md hover:bg-gray-100 transition"
                         >
                             Submit Now
                         </button>
@@ -168,21 +172,21 @@ const RequestCallBackForm = () => {
 
                 {/* Right Side - Reach Us + Map */}
                 <div className="bg-white p-8 md:p-12  flex flex-col">
-                    <h2 className="text-3xl font-bold text-[#2c3e50] mb-8 underline decoration-[#00a7e1] decoration-4 underline-offset-8">
+                    <h2 className="text-3xl font-bold text-text-dark mb-8 underline decoration-brand-blue decoration-4 underline-offset-8">
                         Reach Us
                     </h2>
 
                     <div className="space-y-6 mb-8 text-lg">
                         <p className="flex items-center gap-3">
-                            <span className="text-[#00a7e1] text-2xl">📞</span>
+                            <span className="text-brand-blue text-2xl">📞</span>
                             <span className="font-medium">(501)-424-0123</span>
                         </p>
                         <p className="flex items-center gap-3">
-                            <span className="text-[#00a7e1] text-2xl">✉️</span>
+                            <span className="text-brand-blue text-2xl">✉️</span>
                             <span className="font-medium">info@allstarsmb.com</span>
                         </p>
                         <p className="flex items-center gap-3">
-                            <span className="text-[#00a7e1] text-2xl">📍</span>
+                            <span className="text-brand-blue text-2xl">📍</span>
                             <span className="font-medium">
                                 835 Wilshire Blvd
                                 Ste 500 #513

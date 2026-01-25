@@ -14,8 +14,8 @@ h1,h2,h3,h4,h5,h6{
     font-family: "Brooklyn";
 }
 .maroon{
-    color: #8B1538;
+    color: var(--color-primary);
 }
 .c_green{
-    color: #1B7C8C ;
+    color: var(--color-secondary) ;
 }

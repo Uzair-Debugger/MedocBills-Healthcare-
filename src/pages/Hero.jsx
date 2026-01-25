@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AnimatedSection from "../components/AnimatedSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { whatwedo } from "../constants/data.jsx";
 import { SquareActivity, Hospital, BriefcaseMedical, Bed, Stethoscope, ShieldPlus, Siren } from "lucide-react";
@@ -163,14 +164,14 @@ const Hero = () => {
             <div className="relative w-full h-full bg-gradient-to-br from-teal-50 to-white">
                 <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 md:pt-0 pt-7 overflow-hidden">
                     <button
-                        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-[#8B1538] text-white hover:bg-[#6B0F28] transition-colors"
+                        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-primary text-white hover:bg-primary-dark transition-colors"
                         onClick={() => paginate(-1)}
                         aria-label="Previous slide"
                     >
                         &#10216;
                     </button>
                     <button
-                        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-[#8B1538] text-white hover:bg-[#6B0F28] transition-colors"
+                        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-primary text-white hover:bg-primary-dark transition-colors"
                         onClick={() => paginate(1)}
                         aria-label="Next slide"
                     >
@@ -191,14 +192,14 @@ const Hero = () => {
                                 <div className="flex flex-col md:flex-row items-center gap-8 h-full">
                                     {/* Text Content */}
                                     <div className="w-full md:w-1/2 text-center md:text-left md:absolute md:pl-4 px-4 md:px-0 pt-4 md:pt-0 z-10">
-                                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#8B1538] leading-tight">
+                                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-primary leading-tight">
                                             {slides[currentSlide].title}
                                         </h1>
                                         <p className="leading-6 sm:leading-7 font-light text-sm sm:text-base md:text-lg py-3 sm:py-4 text-gray-700">
                                             {slides[currentSlide].description}
                                         </p>
                                         <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 mt-3 sm:mt-4">
-                                            <button className={`w-full sm:w-auto cursor-pointer py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base font-medium rounded  text-white bg-[#8B1538]  transition-colors hover:bg-[#1B7C8C]`}>
+                                            <button className={`w-full sm:w-auto cursor-pointer py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base font-medium rounded  text-white bg-primary  transition-colors hover:bg-secondary`}>
                                                 {slides[currentSlide].button}
                                             </button>
                                         </div>
@@ -229,64 +230,66 @@ const Hero = () => {
 
             {/* Client Base Section */}
             <div className="my-8 sm:my-12 flex w-full max-w-7xl justify-center px-4">
-                <div className="grid w-full grid-cols-1 justify-between gap-8 sm:gap-10 p-4 sm:p-5 md:grid-cols-2 lg:justify-center">
+                <AnimatedSection direction="up" className="grid w-full grid-cols-1 justify-between gap-8 sm:gap-10 p-4 sm:p-5 md:grid-cols-2 lg:justify-center">
                     <div className="flex max-w-lg flex-col gap-4 sm:gap-5 justify-self-center md:justify-self-start">
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#8B1538] leading-tight">{clientBase.heading}</h1>
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary leading-tight">{clientBase.heading}</h1>
                         <p className="text-gray-700 text-sm sm:text-base leading-relaxed">{clientBase.paragraph}</p>
-                        <button className="rounded-xl bg-[#1B7C8C] p-3 sm:p-3.5 font-medium text-white hover:bg-[#157A89] transition-colors text-sm sm:text-base">{clientBase.buttonText}</button>
+                        <button className="rounded-xl bg-secondary p-3 sm:p-3.5 font-medium text-white hover:bg-secondary-hover transition-colors text-sm sm:text-base">{clientBase.buttonText}</button>
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 items-center justify-center gap-3 sm:gap-4 md:justify-end">
                         {clientBase.icons.map((IconComponent, index) => (
                             <div key={index} className="flex h-max items-center justify-center rounded-lg bg-teal-50 p-4 sm:p-5 shadow-sm hover:shadow-md transition-shadow">
-                                <IconComponent size={40} className="sm:w-[50px] sm:h-[50px] text-[#1B7C8C]" />
+                                <IconComponent size={40} className="sm:w-[50px] sm:h-[50px] text-secondary" />
                             </div>
                         ))}
                     </div>
-                </div>
+                </AnimatedSection>
             </div>
 
             {/* Services Section - Modified with .map() to match the provided image layout */}
-            <div className="relative w-full bg-[#1B7C8C] py-12 overflow-hidden">
+            <div className="relative w-full bg-secondary py-12 overflow-hidden">
                 {/* Header */}
-                <div className="max-w-7xl mx-auto px-4 text-center">
+                <AnimatedSection direction="up" className="max-w-7xl mx-auto px-4 text-center">
                     <h2 className="text-4xl font-bold text-white mb-2">Our Services</h2>
                     <div className="w-32 h-1 bg-white mx-auto mb-8"></div>
                     <p className="text-white max-w-4xl mx-auto mb-12 text-lg leading-relaxed">
                         MedocBills LLC has a strong grasp of medical billing, credentialing, medical A/R, and practice billing audit services. With extensive experience in the healthcare billing industry, we are confident in our ability to enhance the financial performance of your healthcare practice.
                     </p>
-                </div>
+                </AnimatedSection>
 
 
 
                 {/* Grid with .map() */}
                 <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {whatwedo.map((service, index) => (
-                        <div
+                        <AnimatedSection
                             key={index}
+                            direction="up"
+                            delay={index * 100}
                             className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-start"
                         >
-                            <div className="bg-[#E0F7FA] p-4 rounded-lg mb-6">
-                                <service.icon size={40} className="text-[#1B7C8C]" />
+                            <div className="bg-cyan-light p-4 rounded-lg mb-6">
+                                <service.icon size={40} className="text-secondary" />
                             </div>
-                            <h3 className="text-2xl font-bold text-[#8B1538] mb-4 underline decoration-[#00ACC1]">
+                            <h3 className="text-2xl font-bold text-primary mb-4 underline decoration-cyan-accent">
                                 {service.title}
                             </h3>
                             <p className="text-gray-700 leading-relaxed">
                                 {service.description}
                             </p>
-                        </div>
+                        </AnimatedSection>
                     ))}
                 </div>
             </div>
 
 
             {/* Why Choose Section */}
-            <div className="flex w-full max-w-7xl flex-col-reverse md:flex-row p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg">
+            <AnimatedSection direction="left" className="flex w-full max-w-7xl flex-col-reverse md:flex-row p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg">
                 <div className="flex flex-1 flex-col justify-center rounded-3xl bg-gradient-to-br from-teal-50 to-cyan-50 md:ml-5 p-6 sm:p-8 text-center md:items-start mt-6 md:mt-0">
                     <div className="flex flex-col gap-10 sm:gap-12 md:gap-16">
                         {successRate.map((item, index) => (
                             <div key={index} className="flex flex-col items-center md:items-start">
-                                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#8B1538]">{item.value}</span>
+                                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">{item.value}</span>
                                 <span className="text-base sm:text-lg text-gray-700 font-medium mt-1">{item.description}</span>
                             </div>
                         ))}
@@ -294,36 +297,36 @@ const Hero = () => {
                 </div>
 
                 <div className="flex flex-1 flex-col justify-center rounded-t-3xl md:rounded-r-3xl md:rounded-tl-none bg-white p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 text-left">
-                    <h1 className="mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-[#8B1538]">
+                    <h1 className="mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-primary">
                         {whyToChoose.heading}
                     </h1>
                     <ul className="my-3 sm:my-4 space-y-4 sm:space-y-5">
                         {whyToChoose.points.map((item, index) => (
                             <li key={index} className="pl-5 sm:pl-6 relative">
-                                <span className="absolute left-0 top-2 w-2 h-2 bg-[#8B1538] rounded-full"></span>
-                                <h3 className="font-medium text-[#1B7C8C] text-base sm:text-lg mb-1">{item.title}</h3>
+                                <span className="absolute left-0 top-2 w-2 h-2 bg-primary rounded-full"></span>
+                                <h3 className="font-medium text-secondary text-base sm:text-lg mb-1">{item.title}</h3>
                                 <p className="text-sm sm:text-base text-gray-700">{item.para}</p>
                             </li>
                         ))}
                     </ul>
 
-                    <button className="mt-6 sm:mt-8 self-start rounded-full bg-[#1B7C8C] px-5 sm:px-6 py-2.5 sm:py-3 cursor-pointer font-semibold text-white shadow-lg transition-colors hover:bg-[#157A89] text-sm sm:text-base">
+                    <button className="mt-6 sm:mt-8 self-start rounded-full bg-secondary px-5 sm:px-6 py-2.5 sm:py-3 cursor-pointer font-semibold text-white shadow-lg transition-colors hover:bg-secondary-hover text-sm sm:text-base">
                         Schedule a Consultation
                     </button>
                 </div>
-            </div>
+            </AnimatedSection>
 
             {/* Medical Specialities */}
             <MedicalSpecialties />
 
             {/* Testimonials Section */}
-            <div className="relative flex min-h-[600px] sm:min-h-[700px] md:min-h-screen items-center justify-center overflow-hidden font-sans w-full mt-8 sm:mt-10 py-10 sm:py-12 md:py-16 bg-gradient-to-br from-[#8B1538] to-[#4B0A1C] px-4">
+            <div className="relative flex min-h-[600px] sm:min-h-[700px] md:min-h-screen items-center justify-center overflow-hidden font-sans w-full mt-8 sm:mt-10 py-10 sm:py-12 md:py-16 bg-gradient-to-br from-primary to-primary-deep px-4">
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute inset-0" style={{
                         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
                     }}></div>
                 </div>
-                <div className="relative z-10 flex w-full max-w-7xl flex-col items-center justify-center p-4 sm:p-6 md:p-8 text-center text-white">
+                <AnimatedSection direction="up" className="relative z-10 flex w-full max-w-7xl flex-col items-center justify-center p-4 sm:p-6 md:p-8 text-center text-white">
                     <h2 className="mb-8 sm:mb-10 text-3xl sm:text-4xl md:text-5xl font-extrabold">
                         What Healthcare Providers Say
                     </h2>
@@ -342,7 +345,7 @@ const Hero = () => {
                         </AnimatePresence>
                         <button
                             onClick={prevTestimonial}
-                            className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 transform rounded-full bg-[#1B7C8C]/50 p-2 sm:p-3 text-white transition hover:bg-[#1B7C8C]/70 focus:outline-none"
+                            className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 transform rounded-full bg-secondary/50 p-2 sm:p-3 text-white transition hover:bg-secondary/70 focus:outline-none"
                             aria-label="Previous testimonial"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -351,7 +354,7 @@ const Hero = () => {
                         </button>
                         <button
                             onClick={nextTestimonial}
-                            className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 transform rounded-full bg-[#1B7C8C]/50 p-2 sm:p-3 text-white transition hover:bg-[#1B7C8C]/70 focus:outline-none"
+                            className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 transform rounded-full bg-secondary/50 p-2 sm:p-3 text-white transition hover:bg-secondary/70 focus:outline-none"
                             aria-label="Next testimonial"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -365,11 +368,11 @@ const Hero = () => {
                             {testimonials[currentTestimonial].name}
                         </span>
                     </div>
-                </div>
+                </AnimatedSection>
 
             </div>
 
-                    <RequestCallBackForm/>
+            <RequestCallBackForm />
 
         </section>
     );

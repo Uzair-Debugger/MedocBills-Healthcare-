@@ -40,7 +40,7 @@ const MedicalSpecialties = () => {
           <h2 className="text-3xl font-extrabold maroon mt-2 inline-block relative">
             These Medical Specialties
             {/* The blue underline effect */}
-            <span className="absolute left-1/2 transform -translate-x-1/2 bottom-0 h-1 bg-[#1B7C8C] w-3/4"></span>
+            <span className="absolute left-1/2 transform -translate-x-1/2 bottom-0 h-1 bg-secondary w-3/4"></span>
           </h2>
         </div>
 
@@ -59,7 +59,7 @@ const MedicalSpecialties = () => {
         {/* View All Button */}
         <div className="text-center mt-12">
           <button
-            className="px-8 py-3 text-base font-medium rounded-md text-white bg-[#8B1538] hover:bg-[#1B7C8C] cursor-pointer transition duration-150 ease-in-out shadow-lg"
+            className="px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-secondary cursor-pointer transition duration-150 ease-in-out shadow-lg"
           >
             View All Specialties
           </button>
