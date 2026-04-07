@@ -1,12 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { doctorsData } from '../constants/data';
 
 const DoctorsSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const sliderRef = useRef(null);
+  const sliderRef = useRef<HTMLDivElement | null>(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const autoPlayRef = useRef(null);
+  const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const totalSlides = doctorsData.length;
 
   // Auto-play logic
@@ -15,7 +14,11 @@ const DoctorsSlider = () => {
     autoPlayRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % totalSlides);
     }, 3000);
-    return () => clearInterval(autoPlayRef.current);
+    return () => {
+      if (autoPlayRef.current !== null) {
+        clearInterval(autoPlayRef.current);
+      }
+    };
   }, [isAutoPlaying, totalSlides]);
 
   // Pause on hover
@@ -33,18 +36,18 @@ const DoctorsSlider = () => {
 
   // Keyboard support
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') prevSlide();
       if (e.key === 'ArrowRight') nextSlide();
     };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown as EventListener);
+    return () => document.removeEventListener('keydown', handleKeyDown as EventListener);
   }, []);
 
   // Transform calculation
   useEffect(() => {
     if (sliderRef.current) {
-      const card = sliderRef.current.querySelector('.slider-card');
+      const card = sliderRef.current.querySelector<HTMLDivElement>('.slider-card');
       if (card) {
         const cardWidth = card.offsetWidth;
         const gap = 24; // matches "1.5rem" Tailwind gap

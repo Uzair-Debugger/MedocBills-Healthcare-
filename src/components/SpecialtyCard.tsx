@@ -1,7 +1,12 @@
-// SpecialtyCard.jsx
-import React from 'react';
+// SpecialtyCard.tsx
+import type { ComponentType, SVGProps } from 'react';
 
-const SpecialtyCard = ({ icon: Icon, title }) => {
+interface SpecialtyCardProps {
+  title: string;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+}
+
+const SpecialtyCard = ({ icon: Icon, title }: SpecialtyCardProps) => {
   return (
     <div className="flex flex-col items-center justify-center p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white cursor-pointer min-h-[180px]">
       <div className="text-4xl text-blue-600 mb-4">

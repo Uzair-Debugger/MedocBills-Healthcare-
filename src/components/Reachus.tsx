@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import type { ChangeEvent, FormEvent } from 'react';
+import { useState } from 'react';
+import { CustomButton, Container, Typography } from './layout';
+
+interface RequestFormData {
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  state: string;
+  date: string;
+  message: string;
+  notRobot: boolean;
+}
 
 const RequestCallBackForm = () => {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        state: "",
-        date: "",
-        message: "",
-        notRobot: false
-    });
+  const [formData, setFormData] = useState<RequestFormData>({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    state: '',
+    date: '',
+    message: '',
+    notRobot: false,
+  });
 
     const services = [
         "Medical Billing",
@@ -34,29 +47,44 @@ const RequestCallBackForm = () => {
         "West Virginia", "Wisconsin", "Wyoming"
     ];
 
-    const handleChange = () => {
-        // const { name, value, type } = e.target;
-        // // const checked = (e.target as HTMLInputElement).checked;
-        // setFormData(prev => ({
-        //     ...prev,
-        //     [name]: type === 'checkbox' ? checked : value
-        // }));
-    };
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value, type, checked } = e.target as HTMLInputElement;
 
-    const handleSubmit = () => {
-        // e.preventDefault();
-        // console.log("Form submitted:", formData);
-        // Add your form submission logic here
-    };
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    alert('Message sent successfully!');
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      state: '',
+      date: '',
+      message: '',
+      notRobot: false,
+    });
+  };
 
     return (
         <div className="min-h-screen bg-white font-sans text-gray-800 my-5">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Left Side - Form */}
                 <div className="bg-brand-blue p-8 md:p-12 lg:p-16">
-                    <h1 className="text-3xl font-bold text-white mb-10">
+                    <Typography as="h1" variant="h1" className="text-white mb-10">
                         Request For A Call Back
-                    </h1>
+                    </Typography>
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <input
@@ -161,12 +189,13 @@ const RequestCallBackForm = () => {
                       </div>
                     </div>
 
-                        <button
-                            type="submit"
-                            className="w-full bg-white text-brand-blue font-bold py-3 rounded-md hover:bg-gray-100 transition"
+                        <CustomButton
+                          type="submit"
+                          variant="outline"
+                          className="w-full text-brand-blue font-bold py-3 rounded-md hover:bg-gray-100"
                         >
-                            Submit Now
-                        </button>
+                          Submit Now
+                        </CustomButton>
                     </form>
                 </div>
 
@@ -202,8 +231,8 @@ const RequestCallBackForm = () => {
                             height="100%"
                             frameBorder="0"
                             scrolling="no"
-                            marginHeight="0"
-                            marginWidth="0"
+                            marginHeight={0}
+                            marginWidth={0}
                             src="https://maps.google.com/maps?width=100%25&height=450&hl=en&q=835%20Wilshire%20Blvd%20Ste%20500%20%23513%20Los%20Angeles%20CA%2090017&t=&z=15&ie=UTF8&iwloc=B&output=embed"
                         ></iframe>
 

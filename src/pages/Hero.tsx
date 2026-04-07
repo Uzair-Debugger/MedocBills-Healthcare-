@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import AnimatedSection from "../components/AnimatedSection";
-import { motion, AnimatePresence } from "framer-motion";
-import { whatwedo } from "../constants/data.jsx";
-import { SquareActivity, Hospital, BriefcaseMedical, Bed, Stethoscope, ShieldPlus, Siren } from "lucide-react";
-import MedicalSpecialties from "../components/MedicalSpecialties";
-import RequestCallBackForm from "../components/Reachus.jsx";
-import Image1 from '../assets/Hero/1.png'
-import Image2 from '../assets/Hero/2.png'
-import Image3 from '../assets/Hero/3.png'
-import '../App.css'
+import React, { useEffect, useState } from 'react';
+import AnimatedSection from '../components/AnimatedSection';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import { whatwedo } from '../constants/data';
+import { SquareActivity, Hospital, BriefcaseMedical, Bed, Stethoscope, ShieldPlus, Siren } from 'lucide-react';
+import MedicalSpecialties from '../components/MedicalSpecialties';
+import RequestCallBackForm from '../components/Reachus';
+import { Container, Typography, CustomButton } from '../components/layout';
+import Image1 from '../assets/Hero/1.png';
+import Image2 from '../assets/Hero/2.png';
+import Image3 from '../assets/Hero/3.png';
 const clientBase = {
     heading: "Trusted by Healthcare Providers Nationwide",
     paragraph: "Clinics and practices nationwide rely on MedocBills to simplify billing, reduce denials, and consistently boost revenue with dependable end-to-end RCM solutions.",
@@ -104,11 +104,11 @@ const Hero = () => {
         return () => clearInterval(interval);
     }, [slides.length]);
 
-    const slideVariants = {
-        enter: (direction) => ({
-            x: direction > 0 ? "100%" : "-100%",
+    const slideVariants: Variants = {
+        enter: (direction: number) => ({
+            x: direction > 0 ? '100%' : '-100%',
             opacity: 0,
-            position: "absolute",
+            position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
@@ -116,32 +116,32 @@ const Hero = () => {
         center: {
             x: 0,
             opacity: 1,
-            position: "absolute",
+            position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
             zIndex: 1,
             transition: {
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.4, ease: "easeInOut" },
+                x: { type: 'spring' as const, stiffness: 300, damping: 30 },
+                opacity: { duration: 0.4, ease: 'easeInOut' as const },
             },
         },
-        exit: (direction) => ({
-            x: direction < 0 ? "100%" : "-100%",
+        exit: (direction: number) => ({
+            x: direction < 0 ? '100%' : '-100%',
             opacity: 0,
-            position: "absolute",
+            position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
             zIndex: 0,
             transition: {
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.4, ease: "easeInOut" },
+                x: { type: 'spring' as const, stiffness: 300, damping: 30 },
+                opacity: { duration: 0.4, ease: 'easeInOut' as const },
             },
         }),
     };
 
-    const paginate = (newDirection) => {
+    const paginate = (newDirection: number) => {
         setDirection(newDirection);
         setCurrentSlide((prev) =>
             newDirection > 0
@@ -192,16 +192,16 @@ const Hero = () => {
                                 <div className="flex flex-col md:flex-row items-center gap-8 h-full">
                                     {/* Text Content */}
                                     <div className="w-full md:w-1/2 text-center md:text-left md:absolute md:pl-4 px-4 md:px-0 pt-4 md:pt-0 z-10">
-                                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-primary leading-tight">
+                                        <Typography as="h1" variant="h1" className="text-primary leading-tight">
                                             {slides[currentSlide].title}
-                                        </h1>
-                                        <p className="leading-6 sm:leading-7 font-light text-sm sm:text-base md:text-lg py-3 sm:py-4 text-gray-700">
+                                        </Typography>
+                                        <Typography as="p" variant="p" className="leading-6 sm:leading-7 font-light text-sm sm:text-base md:text-lg py-3 sm:py-4 text-gray-700">
                                             {slides[currentSlide].description}
-                                        </p>
+                                        </Typography>
                                         <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 mt-3 sm:mt-4">
-                                            <button className={`w-full sm:w-auto cursor-pointer py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base font-medium rounded  text-white bg-primary  transition-colors hover:bg-secondary`}>
+                                            <CustomButton variant="secondary" className="w-full sm:w-auto py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base font-medium rounded-full text-white bg-primary hover:bg-secondary">
                                                 {slides[currentSlide].button}
-                                            </button>
+                                            </CustomButton>
                                         </div>
                                     </div>
 

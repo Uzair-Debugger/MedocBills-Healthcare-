@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Search, MapPin, Calendar } from 'lucide-react';
 import { jobs } from '../constants/data';
+import { Container, Typography } from '../components/layout';
+
 export default function CareerPage() {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -13,11 +15,11 @@ export default function CareerPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-deep via-primary-dark to-primary text-white py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+        <Container size="md" className="text-center">
+          <Typography as="h1" variant="h1" className="text-white mb-4 leading-tight">
             Invest in your career,<br />
             <span className="text-secondary">Grow</span> with tech's top talent.
-          </h1>
+          </Typography>
 
           <div className="mt-8 max-w-xl mx-auto">
             <div className="relative">
@@ -26,12 +28,12 @@ export default function CareerPage() {
                 placeholder="Search Job Here..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full outline-2 text-white outline-secondary px-6 py-4 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary"
+                className="w-full outline-2 outline-secondary px-6 py-4 rounded-lg text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary"
               />
               <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Jobs Section */}

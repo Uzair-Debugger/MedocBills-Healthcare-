@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { useState } from 'react';
 import logo from '../assets/logo.png';
 import { Facebook, Linkedin, Youtube, Phone, Mail, MapPin } from 'lucide-react';
+import { Container, Typography, CustomButton } from './layout';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
 
   const handleSubmit = () => {
     if (email && message) {
@@ -17,8 +19,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-soft-pink text-black py-12 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+    <footer className="bg-soft-pink text-black py-12">
+      <Container size="lg" className="px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
 
         {/* Left Column - Logo & Social */}
         <div className="border-2 border-secondary rounded-lg p-5">
@@ -48,7 +51,9 @@ export default function Footer() {
 
         {/* Column 2 - Proudly Serving */}
         <div>
-          <h3 className="text-xl font-bold mb-4">Proudly Serving</h3>
+          <Typography as="h3" variant="h3" className="mb-4">
+            Proudly Serving
+          </Typography>
           <ul className="space-y-2 text-primary font-light">
             {[
               'Private Practices',
@@ -94,24 +99,26 @@ export default function Footer() {
               type="email"
               placeholder="Your Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
               className="w-full px-4 py-3 rounded bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
             />
 
             <textarea
               placeholder="Message"
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
               rows={4}
               className="w-full px-4 py-3 rounded bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 resize-none"
             />
 
-            <button
+            <CustomButton
+              type="button"
               onClick={handleSubmit}
-              className="w-full cursor-pointer bg-primary hover:bg-secondary-accent text-white font-semibold py-3 rounded transition"
+              variant="secondary"
+              className="w-full"
             >
               Send Message
-            </button>
+            </CustomButton>
           </div>
 
           {/* Divider */}
@@ -151,6 +158,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      </Container>
     </footer>
   );
 }
