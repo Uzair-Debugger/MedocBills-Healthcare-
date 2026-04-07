@@ -2,75 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Activity, Stethoscope, FileText, Users, Clock, Award, Heart, Shield, ChevronDown } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import type { CounterProps } from '../constants/types';
-
-// Mock data for demonstration
-const servicesData = [
-  {
-    title: "Medical Billing",
-    description: "Comprehensive billing solutions for healthcare providers with accurate coding and timely claim submission."
-  },
-  {
-    title: "Revenue Cycle Management",
-    description: "End-to-end revenue cycle optimization to maximize collections and reduce administrative burden."
-  },
-  {
-    title: "Claims Processing",
-    description: "We efficiently process claims, monitor approvals, and resolve denials through prompt corrections and appeals."
-  },
-  {
-    title: "Compliance Support",
-    description: "Stay secure and audit-ready with HIPAA-aligned workflows, regulatory guidance, and robust data protection."
-  }
-];
-
-const statsData = [
-  { value: 98, label: "Accuracy Rate", suffix: "%" },
-  { value: 500, label: "Clients Served", suffix: "+" },
-  { value: 15, label: "Years Experience", suffix: "+" },
-  { value: 95, label: "Client Satisfaction", suffix: "%" }
-];
-
-const doctorsData = [
-  {
-    name: "Dr. Sarah Mitchell",
-    specialty: "Chief Medical Officer",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=400&fit=crop&crop=face"
-  },
-  {
-    name: "Dr. James Chen",
-    specialty: "Billing Specialist",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=400&fit=crop&crop=face"
-  },
-  {
-    name: "Dr. Emily Rodriguez",
-    specialty: "Compliance Director",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=300&h=400&fit=crop&crop=face"
-  }
-];
-
-
-const faqs = [
-  {
-    question: 'How do we get started?',
-    answer: 'Getting started is simple. Share your practice details, including your specialty, practice model, and any specific concerns. Let us know the best time to contact you so we can prepare a tailored healthcare management solution designed specifically for your practice.'
-  },
-  {
-    question: 'Why should I trust MedocBills for billing?',
-    answer: 'MedocBills serves a wide range of medical specialties, providing customized billing solutions that comply with HIPAA and industry standards. Our trained and experienced team has consistently helped practices improve revenue, reduce denials, and eliminate the stress of managing an in-house billing department.'
-  },
-  {
-    question: 'What makes MedocBills different from other billing services?',
-    answer: 'We operate as an extension of your practice, with hands-on management that ensures smooth operations and maximized revenue. Our focus is on reducing your revenue cycle time while delivering measurable results. With MedocBills, your success is our top priority — and our proven track record demonstrates it.'
-  },
-  {
-    question: 'Is MedocBills ICD-10 ready?',
-    answer: 'Yes. We are fully ICD-10 compliant and ensure accurate coding for every claim.'
-  },
-  {
-    question: 'What reports does MedocBills provide?',
-    answer: 'We provide monthly reports covering account activity, aging, and other key metrics. Custom reports can also be designed based on your needs. We recommend monthly review meetings to compare past and current collections, track trends, evaluate practice performance, and measure how MedocBills is contributing to your practice’s success.'
-  }
-];
+import { servicesData, statsData, doctorsData, faqs } from '../constants/data';
 
 
 const Counter = ({ value, duration = 2000, suffix = "" }: CounterProps) => {

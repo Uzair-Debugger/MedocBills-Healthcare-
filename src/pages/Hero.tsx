@@ -6,95 +6,20 @@ import { SquareActivity, Hospital, BriefcaseMedical, Bed, Stethoscope, ShieldPlu
 import MedicalSpecialties from '../components/MedicalSpecialties';
 import RequestCallBackForm from '../components/Reachus';
 import { Container, Typography, CustomButton } from '../components/layout';
+import { clientBase, successRate, whyToChoose, testimonials, testimonialVariants} from '../constants/data';
 import Image1 from '../assets/Hero/1.webp';
 import Image2 from '../assets/Hero/2.webp';
 import Image3 from '../assets/Hero/3.webp';
-const clientBase = {
-    heading: "Trusted by Healthcare Providers Nationwide",
-    paragraph: "Clinics and practices nationwide rely on MedocBills to simplify billing, reduce denials, and consistently boost revenue with dependable end-to-end RCM solutions.",
-    buttonText: "Get Started Today",
-    icons: [Hospital, BriefcaseMedical, Stethoscope, ShieldPlus, Bed, Siren]
-};
+import { PersonSVG } from '../constants/icons';
+import { slides } from '../constants/data';
 
-const successRate = [
-    { value: "98%", description: "Clean Claim Rate" },
-    { value: "45%", description: "Revenue Increase" },
-    { value: "24hrs", description: "Average Turnaround" }
-];
-
-const whyToChoose = {
-    heading: "Why Healthcare Providers Choose MedocBills",
-    points: [
-        {
-            title: "We Reduce Your Administrative Burden",
-            para: "Focus on patients — we take care of the billing complexities."
-        },
-        {
-            title: "We Improve Your Revenue Performance",
-            para: "Optimized workflows and expert coding help you capture every dollar you've earned."
-        },
-        {
-            title: "We Deliver Consistency",
-            para: "From claim submission to payment posting, our process ensures predictable and reliable results."
-        },
-        {
-            title: "We Offer a Personal Touch",
-            para: "Your practice gets a dedicated billing partner, not a generic support desk."
-        }
-    ]
-};
-
-const services = [
-    { icon: SquareActivity, title: "Medical Billing", description: "Accurate billing and clean claims that get you paid faster." },
-    { icon: Hospital, title: "Practice Management", description: "Streamlined workflows that keep your practice efficient and organized." },
-    { icon: BriefcaseMedical, title: "Revenue Cycle Management", description: "Optimized financial processes for stronger, predictable cash flow." },
-    { icon: ShieldPlus, title: "Compliance Support", description: "HIPAA-aligned guidance that keeps your practice protected and audit-ready." }
-];
-
-const testimonials = [
-    { name: "Family Practice, Texas", text: "MedocBills has completely transformed our billing process. Our claim approvals are faster, and denials have dropped noticeably. Highly recommended!" },
-    { name: "Pediatrics Clinic, Florida", text: "Their team is responsive, accurate, and easy to work with. We finally have clear visibility into our revenue cycle." },
-    { name: "Specialty Clinic, California", text: "Outsourcing to MedocBills has saved us so much time. Our collections improved within the first few months." },
-    { name: "Internal Medicine Practice, New York", text: "Professional, dependable, and detail-oriented. Their billing support allows us to focus fully on patient care." }
-];
-
-const testimonialVariants = {
-    enter: { opacity: 0, x: 50 },
-    center: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-    exit: { opacity: 0, x: -50, transition: { duration: 0.5 } }
-};
-
-const PersonSVG = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-20 w-20 sm:h-24 sm:w-24 rounded-full bg-white text-gray-400">
-        <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.153.332l-.004.004-.006.007-.021.02a8.775 8.775 0 01-1.01.996.75.75 0 01-.58.12l-.025-.005a9.143 9.143 0 00-1.07.126l-.066-.011a6.6 6.6 0 01-1.428-.152.75.75 0 01-.484-.664v-1.897a.75.75 0 00-.75-.75H12a.75.75 0 00-.75.75v1.897a.75.75 0 01-.484.664 6.6 6.6 0 01-1.428.152l-.066.011a9.143 9.143 0 00-1.07-.126l-.025.005a.75.75 0 01-.58-.12 8.775 8.775 0 01-1.01-.996l-.006-.007-.004-.004a.75.75 0 01-.153-.332z" clipRule="evenodd" />
-    </svg>
-);
 
 const Hero = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [direction, setDirection] = useState(1);
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-    const slides = [
-        {
-            title: (<>Welcome, Doctors!<br />Your Billing is Our Priority</>),
-            description: "We welcome new clients and are committed to delivering high-quality, reliable service to all customers. Thank you for trusting our experienced team with your medical billing needs.",
-            button: "Get in Touch",
-            image: Image1,
-        },
-        {
-            title: (<>MEDOCBILLS LLC- Your Trusted Partner in US Healthcare Billing.</>),
-            description: "From clean claim submission to denial follow-up, we ensure you get paid on time, every time.",
-            button: "Get consultation",
-            image: Image2,
-        },
-        {
-            title: "Increase Your Practice Revenue With Accurate & Fast Medical Billing",
-            description: "Focus on exceptional patient care while we manage claims, coding, denials, and collections with unmatched accuracy.",
-            button: "Free Audit",
-            image: Image3,
-        },
-    ];
+
 
     useEffect(() => {
         const interval = setInterval(() => {

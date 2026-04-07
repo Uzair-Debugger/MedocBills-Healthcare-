@@ -1,17 +1,8 @@
 import type { ChangeEvent, FormEvent } from 'react';
 import { useState } from 'react';
 import { CustomButton, Container, Typography } from './layout';
-
-interface RequestFormData {
-  name: string;
-  email: string;
-  phone: string;
-  service: string;
-  state: string;
-  date: string;
-  message: string;
-  notRobot: boolean;
-}
+import { RequestFormData } from '../constants/schema';
+import { services_reachus, states } from '../constants/data';
 
 const RequestCallBackForm = () => {
   const [formData, setFormData] = useState<RequestFormData>({
@@ -24,28 +15,6 @@ const RequestCallBackForm = () => {
     message: '',
     notRobot: false,
   });
-
-    const services = [
-        "Medical Billing",
-        "Medical Coding",
-        "Medical Credentialing",
-        "Verification of Benefits",
-        "Prior Authorization",
-        "Patient Billing"
-    ];
-
-    const states = [
-        "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
-        "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho",
-        "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
-        "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
-        "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada",
-        "New Hampshire", "New Jersey", "New Mexico", "New York",
-        "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
-        "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
-        "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
-        "West Virginia", "Wisconsin", "Wyoming"
-    ];
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
@@ -122,7 +91,7 @@ const RequestCallBackForm = () => {
                                 required
                             >
                                 <option value="" disabled>- Service -</option>
-                                {services.map((service) => (
+                                {services_reachus.map((service) => (
                                     <option key={service} value={service}>{service}</option>
                                 ))}
                             </select>
