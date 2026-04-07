@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { mergeClass } from '../../utils/classUtils';
+import type { ContainerSize } from '../../constants/types';
 
-export type ContainerSize = 'sm' | 'md' | 'lg' | 'xl' | 'full';
 
 interface ContainerProps {
   size?: ContainerSize;

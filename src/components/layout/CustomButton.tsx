@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes } from 'react';
 import { mergeClass } from '../../utils/classUtils';
+import type { ButtonVariant } from '../../constants/types';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
 
 interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
