@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
 import { mergeClass } from '../../utils/classUtils';
-
-export type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'small' | 'label';
+import type { TypographyVariant } from '../../constants/types';
 
 interface TypographyProps<T extends ElementType> {
   as?: T;

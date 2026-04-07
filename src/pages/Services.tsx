@@ -1,12 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Activity, Stethoscope, FileText, Users, Clock, Award, Heart, Shield, ChevronDown } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import type { CounterProps } from '../constants/types';
 
-type CounterProps = {
-  value: number;
-  duration?: number;
-  suffix?: string;
-};
 // Mock data for demonstration
 const servicesData = [
   {
