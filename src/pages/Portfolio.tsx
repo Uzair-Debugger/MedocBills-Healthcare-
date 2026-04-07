@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 
 export default function PortfolioPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openFAQ, setOpenFAQ] = useState(null);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const skills = [
     { name: 'Web Design', level: 85 },
@@ -128,6 +128,7 @@ export default function PortfolioPage() {
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
                   alt="Brandon - Creative Developer"
+                  loading='lazy'
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
               </div>
@@ -163,6 +164,7 @@ export default function PortfolioPage() {
                 <img
                   src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=500&h=400&fit=crop"
                   alt="Creative workspace"
+                  loading='lazy'
                   className="w-full h-80 object-cover rounded-xl shadow-lg"
                 />
               </div>
@@ -571,7 +573,7 @@ export default function PortfolioPage() {
                       Message
                     </label>
                     <textarea
-                      rows="4"
+                      rows ={4}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Tell me about your project..."
                     ></textarea>

@@ -1,6 +1,6 @@
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 import { Facebook, Linkedin, Youtube, Phone, Mail, MapPin } from 'lucide-react';
 import { Container, Typography, CustomButton } from './layout';
 
@@ -29,6 +29,7 @@ export default function Footer() {
             src={logo}
             alt="MedocBills Logo"
             className="h-12 w-auto mx-auto mb-4"
+            loading='lazy'
           />
 
           <p className="font-light text-sm text-center mb-5">

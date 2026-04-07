@@ -85,7 +85,7 @@ const RequestCallBackForm = () => {
                     <Typography as="h1" variant="h1" className="text-white mb-10">
                         Request For A Call Back
                     </Typography>
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form aria-label='Contact us' onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <input
                                 type="text"
@@ -171,6 +171,7 @@ const RequestCallBackForm = () => {
                           <img
                             src="https://www.gstatic.com/recaptcha/api2/logo_48.png"
                             alt="reCAPTCHA logo"
+                            loading='lazy'
                             className="h-full w-full object-contain"
                           />
                         </div>

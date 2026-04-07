@@ -6,9 +6,9 @@ import { SquareActivity, Hospital, BriefcaseMedical, Bed, Stethoscope, ShieldPlu
 import MedicalSpecialties from '../components/MedicalSpecialties';
 import RequestCallBackForm from '../components/Reachus';
 import { Container, Typography, CustomButton } from '../components/layout';
-import Image1 from '../assets/Hero/1.png';
-import Image2 from '../assets/Hero/2.png';
-import Image3 from '../assets/Hero/3.png';
+import Image1 from '../assets/Hero/1.webp';
+import Image2 from '../assets/Hero/2.webp';
+import Image3 from '../assets/Hero/3.webp';
 const clientBase = {
     heading: "Trusted by Healthcare Providers Nationwide",
     paragraph: "Clinics and practices nationwide rely on MedocBills to simplify billing, reduce denials, and consistently boost revenue with dependable end-to-end RCM solutions.",

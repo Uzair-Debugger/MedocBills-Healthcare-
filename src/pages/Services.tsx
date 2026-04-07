@@ -1,6 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Activity, Stethoscope, FileText, Users, Clock, Award, Heart, Shield, ChevronDown } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+
+type CounterProps = {
+  value: number;
+  duration?: number;
+  suffix?: string;
+};
 // Mock data for demonstration
 const servicesData = [
   {
@@ -71,16 +77,16 @@ const faqs = [
 ];
 
 
-const Counter = ({ value, duration = 2000, suffix = "" }) => {
+const Counter = ({ value, duration = 2000, suffix = "" }: CounterProps) => {
   const [count, setCount] = useState(0);
-  const ref = useRef();
-  const observer = useRef();
+  const ref = useRef<HTMLDivElement | null>(null);
+  const observer = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     observer.current = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        let startTimestamp = null;
-        const step = (timestamp) => {
+        let startTimestamp: number | null = null;
+        const step = (timestamp: number) => {
           if (!startTimestamp) startTimestamp = timestamp;
           const progress = timestamp - startTimestamp;
           const increment = Math.min(progress / duration, 1);
@@ -90,14 +96,16 @@ const Counter = ({ value, duration = 2000, suffix = "" }) => {
           }
         };
         window.requestAnimationFrame(step);
-        observer.current.disconnect();
+        observer.current?.disconnect();
       }
     });
 
     if (ref.current) {
       observer.current.observe(ref.current);
     }
-    return () => observer.current?.disconnect();
+    return () => {
+      observer.current?.disconnect();
+    };
   }, [value, duration]);
 
   return <div ref={ref}>{count}{suffix}</div>;
@@ -106,7 +114,7 @@ const Counter = ({ value, duration = 2000, suffix = "" }) => {
 const DoctorsSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  
+
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % doctorsData.length);
   };
@@ -200,9 +208,9 @@ const DoctorsSlider = () => {
 };
 
 const Services = () => {
-  const servicesRef = useRef(null);
+  const servicesRef = useRef<HTMLDivElement | null>(null);
   const [isServicesVisible, setIsServicesVisible] = useState(false);
-  const [openFAQ, setOpenFAQ] = useState(null);
+  const [openFAQ, setOpenFAQ] = useState<null | number>(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

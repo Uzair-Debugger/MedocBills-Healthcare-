@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Logo from '../assets/logo.png';
+import Logo from '../assets/logo.webp';
 import { MenuIcon, X, Instagram, Facebook, Mail, PhoneIcon, Twitter, ArrowRight } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
 import { CustomButton } from './layout/CustomButton';
@@ -39,7 +39,7 @@ const Navbar = () => {
 
       <nav aria-label="Main navigation" className="flex z-40 items-end justify-between bg-white shadow-sm max-[1150px]:bg-blue-50">
         <Link to="/" className="flex gap-3 p-2 text-xl ml-2">
-          <img src={Logo} alt="logo" className="w-55 h-full" />
+          <img src={Logo} alt="logo" className="w-55 h-full" loading='lazy'/>
         </Link>
 
         <div className="hidden min-[1150px]:flex">

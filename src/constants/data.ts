@@ -1,8 +1,3 @@
-import Doctor1 from '../assets/Doctors/Doctor1.jpg'
-import Doctor2 from '../assets/Doctors/Doctor2.jpg'
-import Doctor3 from '../assets/Doctors/Doctor3.jpg'
-import Doctor4 from '../assets/Doctors/Doctor4.jpg'
-import Doctor5 from '../assets/Doctors/Doctor5.jpg'
 
 import { ShieldPlus, DollarSign, Lock, Laptop, User} from "lucide-react"
 
@@ -131,15 +126,6 @@ export const statsData = [
   { label: 'Certifications & Accreditations', value: 26 },
   { label: 'Dedicated Professionals', value: 12 },
 ];
-
-export const doctorsData = [
-  { name: 'Dr. Janet Johnson', specialization: 'Tooth Specialist', image:Doctor1 },
-  { name: 'Dr. Charles Smith', specialization: 'Orthodontist', image: Doctor2},
-  { name: 'Dr. Olivia Bayneitle', specialization: 'Hygienist', image: Doctor3 },
-  { name: 'Dr. Alex Brown', specialization: 'Periodontist', image: Doctor4 },
-  { name: 'Dr. Emily Davis', specialization: 'Pediatric Dentist', image: Doctor5 },
-];
-
 
 export  const jobs = [
     {

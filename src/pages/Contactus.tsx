@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-
-const ContactUsPic = "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=1200&h=800&fit=crop";
+import ContactUsPic from '../assets/Hero/contactus.webp'
 
 const App = () => {
     const [formData, setFormData] = useState({

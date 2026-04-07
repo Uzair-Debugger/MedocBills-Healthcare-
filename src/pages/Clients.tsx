@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Building2, Calendar, Phone, Mail, MapPin, CheckCircle2, Users, FileText, TrendingUp, Shield } from 'lucide-react';
 
-const AnimatedSection = ({ children, delay = 0, direction = 'left' }) => {
+const AnimatedSection = ({ children, delay = 0, direction = 'left' }:any) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -148,6 +148,7 @@ export default function ClientsPage() {
                   <img
                     src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop"
                     alt="Healthcare Professional"
+                    loading='lazy'
                     className="rounded-lg shadow-lg w-full"
                   />
                 </div>
