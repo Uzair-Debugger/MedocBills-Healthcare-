@@ -11,9 +11,9 @@ const App = () => {
         message: ""
     });
 
-    const [submitStatus, setSubmitStatus] = useState(null);
+    const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
@@ -21,7 +21,7 @@ const App = () => {
         }));
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         // Simulate form submission
@@ -187,7 +187,7 @@ const App = () => {
                                     id="message"
                                     name="message"
                                     required
-                                    rows="5"
+                                    rows={5}
                                     value={formData.message}
                                     className="w-full px-4 py-3 rounded-xl bg-white/95 backdrop-blur-sm resize-none focus:outline-none focus:ring-2 focus:ring-secondary transition duration-200"
                                     placeholder="Tell us about your practice and how we can help..."

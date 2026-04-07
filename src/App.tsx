@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { Container } from './components/layout';
 import Hero from './pages/Hero';
-import Portfolio from './pages/Portfolio';
 import Services from './pages/Services';
 import Contactus from './pages/Contactus';
 import AboutUs from './pages/Aboutus';
@@ -19,7 +18,6 @@ function App() {
           <Route path="/" element={<Hero />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contactus" element={<Contactus />} />
-          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/career" element={<CareerPage />} />
           <Route path="/clients" element={<ClientsPage />} />

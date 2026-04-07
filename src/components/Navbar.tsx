@@ -1,20 +1,12 @@
 import { useState } from 'react';
 import Logo from '../assets/logo.webp';
+import { navItems } from '../constants/data';
 import { MenuIcon, X, Instagram, Facebook, Mail, PhoneIcon, Twitter, ArrowRight } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
 import { CustomButton } from './layout/CustomButton';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const navItems = [
-    { label: 'Home', path: '/' },
-    { label: 'Our Services', path: '/services' },
-    { label: 'Contact us', path: '/contactus' },
-    { label: 'About us', path: '/about' },
-    { label: 'Career', path: '/career' },
-    { label: 'Our Clients', path: '/clients' },
-  ];
 
   return (
     <header className="sticky top-0 z-50">
