@@ -10,8 +10,8 @@ interface TypographyProps<T extends ElementType> {
 }
 
 const variantClasses: Record<TypographyVariant, string> = {
-  h1: 'text-5xl sm:text-6xl font-bold tracking-tight',
-  h2: 'text-4xl sm:text-5xl font-bold tracking-tight',
+  h1: 'text-4xl md:text-5xl font-bold tracking-tight',
+  h2: 'text-3xl md:text-5xl font-bold tracking-tight',
   h3: 'text-3xl font-semibold tracking-tight',
   h4: 'text-2xl font-semibold tracking-tight',
   h5: 'text-xl font-semibold tracking-tight',

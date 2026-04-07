@@ -19,7 +19,7 @@ export function CustomButton({ variant = 'primary', className, ...props }: Custo
     <button
       {...props}
       className={mergeClass(
-        'inline-flex items-center justify-center rounded-full px-6 py-3 font-medium shadow-sm',
+        'inline-flex items-center justify-center px-6 py-3 font-medium shadow-sm',
         variantClasses[variant],
         className,
       )}

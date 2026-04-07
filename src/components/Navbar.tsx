@@ -52,7 +52,7 @@ const Navbar = () => {
             </div>
 
             <div className="flex ml-10">
-              <CustomButton variant="primary" className="gap-2 mx-2 px-4 py-2 text-white bg-primary hover:bg-secondary">
+              <CustomButton variant="primary" className="gap-2 mx-2 px-4 py-2 cursor-pointer text-white bg-primary hover:bg-secondary">
                 Free Consultation
                 <ArrowRight />
               </CustomButton>

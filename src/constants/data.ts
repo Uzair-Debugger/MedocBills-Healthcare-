@@ -55,13 +55,13 @@ export const navItems = [
 
   export const slides:Slide[] = [
         {
-            title: "Welcome, Doctors!Your Billing is Our Priority",
+            title: "Welcome, Doctors! Your Billing is Our Priority",
             description: "We welcome new clients and are committed to delivering high-quality, reliable service to all customers. Thank you for trusting our experienced team with your medical billing needs.",
             button: "Get in Touch",
             image: Image1,
         },
         {
-            title: "MEDOCBILLS LLC- Your Trusted Partner in US Healthcare Billing.",
+            title: "MEDOCBILLS LLC- Your Trusted Partner in US Healthcare Billing.",
             description: "From clean claim submission to denial follow-up, we ensure you get paid on time, every time.",
             button: "Get consultation",
             image: Image2,
