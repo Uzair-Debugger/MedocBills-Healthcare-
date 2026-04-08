@@ -1,14 +1,24 @@
 import React, { ReactNode } from "react";
-import { ShieldPlus, DollarSign, Lock, Laptop, User} from "lucide-react"
-import { IconSyringe, IconBrain, IconEye, IconHead, IconHeart, IconKnee, IconPain, IconSpine, IconTooth } from "./icons";
 import Image1 from '../assets/Hero/1.webp'
 import Image2 from '../assets/Hero/2.webp'
 import Image3 from '../assets/Hero/3.webp'
 
-import { Rocket, HeartPulse, Bug, Users,
-    SquareActivity, Hospital, BriefcaseMedical, Bed, Stethoscope, Siren
- } from "lucide-react";
+import { 
 
+  ShieldPlus, DollarSign, Lock, Laptop, User,Heart, Award, 
+  Phone, PhoneOutgoing, Mail, MessageSquare, 
+  Users, SquareActivity, Hospital, 
+  BriefcaseMedical, Bed, Stethoscope, Siren
+
+} from "lucide-react"
+
+import { 
+  IconSyringe, IconBrain, IconEye, IconHead, 
+  IconHeart, IconKnee, IconPain, IconSpine, IconTooth 
+} from "./icons";
+
+
+// Navbar.tsx ==================================================================
 export const navItems = [
     { label: 'Home', path: '/' },
     { label: 'Our Services', path: '/services' },
@@ -17,8 +27,8 @@ export const navItems = [
     { label: 'Career', path: '/career' },
     { label: 'Our Clients', path: '/clients' },
   ];
-
-  // Reachus.tsx
+// ============================================================================
+// Reachus.tsx ================================================================
   
   
       export const services_reachus = [
@@ -42,9 +52,9 @@ export const navItems = [
           "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
           "West Virginia", "Wisconsin", "Wyoming"
       ];
-      // ====================================================
+// ==============================================================================
 
-      // Hero.tsx
+// Hero.tsx =====================================================================
 
       type Slide = {
         title: ReactNode;
@@ -128,9 +138,11 @@ export const testimonialVariants = {
     center: { opacity: 1, x: 0, transition: { duration: 0.5 } },
     exit: { opacity: 0, x: -50, transition: { duration: 0.5 } }
 };
-      // ========================================
 
-// Clients.tsx
+// =========================================================================
+
+// Clients.tsx =============================================================
+
 export const whyChoose = [
     'Allow health freedom',
     'Efficiently maintain health ID/MSN',
@@ -165,109 +177,8 @@ export const rcmSteps = [
     'Reporting',
     'Refund'
   ];
-// export const services = [
-//     {
-//       title: 'Insurance Eligibility Verification Services',
-//       description: 'We provide comprehensive eligibility verification services to ensure that your patients\' insurance policies are verified before services are authorized or referrals are made.'
-//     },
-//     {
-//       title: 'Demographics & Charge Entry Services',
-//       description: 'We manage the initial workflow stages to charge entry, which include the capture of payment for the healthcare system. Our trained team accurately processes patient demographics and insurance information in real-time.'
-//     },
-//     {
-//       title: 'Billing & Analysis',
-//       description: 'We understand that healthcare billing is a patient\'s file, including the payer\'s information, claims, payments, and accounts receivable. We send crucial healthcare data back to insurance or claim services, coding consultants, and a dedicated workflow that facilitates high-level analytics of payor, patient, and practice working trends.'
-//     },
-//     {
-//       title: 'AR Follow-up Services',
-//       description: 'We pursue AR at all accounts receivables and call for a free consultancy and others at what. We advise closest tracking on follow up and conduct timely audits, for evaluating the efficiency of what you deserve from insurance companies and third party payers at each of the follow up period.'
-//     }
-//   ];
-
- 
-// ==================================
 
 
-
-
-// export const clientBase = {
-//   heading: "Our Client Base",
-//   paragraph: "Carecloud offers comprehensive medical billing and revenue cycle management services to a diverse client base. We partner with healthcare providers of all sizes, from solo practitioners navigating complex healthcare landscapes to large healthcare systems managing bustling operations. Our commitment lies in delivering tailored solutions that drive revenue and efficiency.",
-//   buttonText: "Let's Streamline Your Billing",
-//   icons: [
-//     SquareActivity,
-//     Hospital,
-//     BriefcaseMedical,
-//     Bed,
-//     Stethoscope,
-//     Siren
-//   ]
-// };
-
-
-// export const testimonials = [
-//   {
-//     text: "Lorem consequat massa quis enim.Donec pede justo, fringilla vel, aliquet nec, vulputate eget Nulla consequat massa quis enim.Donec pede justo, fringilla vel, vulputate eget ut ex ac nulla pellentesque mollis in a enim. Praesent placerat sapien mauris, vitae sodales tellus venenatis ac....",
-//     name: "John Smith",
-//   },
-//   {
-//     text: "This is a second testimonial. The service was excellent and I am very happy with the results. Highly recommended for anyone looking for professional medical billing services.",
-//     name: "Jane Doe",
-//   },
-//   {
-//     text: "My third testimonial. The team at RMB is incredibly efficient and has made a huge difference in our revenue cycle management. Their expertise is unmatched.",
-//     name: "Peter Jones",
-//   },
-// ];
-
-
-    // Testimonial navigation
-// Testimonials data
-
-
-// export const testimonialVariants = {
-//         enter: { opacity: 0, y: 20 },
-//         center: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeInOut" } },
-//         exit: { opacity: 0, y: -20, transition: { duration: 0.5, ease: "easeInOut" } },
-//     };
-
-
-
-// Our Services Section
-
-export const servicesData = [
-  { 
-    title: 'Medical Billing & Coding', 
-    description: "Accurate billing and coding services designed to minimize errors, ensure compliance, and maximize reimbursements." 
-  },
-  { 
-    title: 'Insurance Claim Management', 
-    description: "Streamlined claim submission, tracking, and follow-up that improves approval rates and reduces denials." 
-  },
-  { 
-    title: 'Patient Support & Assistance', 
-    description: "Compassionate guidance to help patients navigate healthcare bills, insurance policies, and payment options with ease." 
-  },
-  { 
-    title: 'Compliance & Reporting', 
-    description: "HIPAA-compliant processes and detailed reporting to safeguard patient data and maintain financial transparency." 
-  },
-  { 
-    title: 'Revenue Cycle Management', 
-    description: "End-to-end management of the revenue cycle, from scheduling to collections, for increased efficiency and profitability." 
-  },
-  { 
-    title: 'Telehealth Billing', 
-    description: "Specialized billing solutions tailored for virtual care and telehealth services, aligned with modern insurance policies." 
-  },
-];
-
-// export const statsData = [
-//   { label: 'Years of Expertise', value: 15 },
-//   { label: 'Healthcare Providers Served', value: 452 },
-//   { label: 'Certifications & Accreditations', value: 26 },
-//   { label: 'Dedicated Professionals', value: 12 },
-// ];
 
 export  const jobs = [
     {
@@ -429,26 +340,37 @@ export const specialties = [
     { title: 'Pain Management', icon: IconPain },
 ];
 
-// Services.tsx =====================================================
 
-// export const servicesData = [
-//   {
-//     title: "Medical Billing",
-//     description: "Comprehensive billing solutions for healthcare providers with accurate coding and timely claim submission."
-//   },
-//   {
-//     title: "Revenue Cycle Management",
-//     description: "End-to-end revenue cycle optimization to maximize collections and reduce administrative burden."
-//   },
-//   {
-//     title: "Claims Processing",
-//     description: "We efficiently process claims, monitor approvals, and resolve denials through prompt corrections and appeals."
-//   },
-//   {
-//     title: "Compliance Support",
-//     description: "Stay secure and audit-ready with HIPAA-aligned workflows, regulatory guidance, and robust data protection."
-//   }
-// ];
+
+// Services.tsx =======================================================================
+
+export const servicesData = [
+  { 
+    title: 'Medical Billing & Coding', 
+    description: "Accurate billing and coding services designed to minimize errors, ensure compliance, and maximize reimbursements." 
+  },
+  { 
+    title: 'Insurance Claim Management', 
+    description: "Streamlined claim submission, tracking, and follow-up that improves approval rates and reduces denials." 
+  },
+  { 
+    title: 'Patient Support & Assistance', 
+    description: "Compassionate guidance to help patients navigate healthcare bills, insurance policies, and payment options with ease." 
+  },
+  { 
+    title: 'Compliance & Reporting', 
+    description: "HIPAA-compliant processes and detailed reporting to safeguard patient data and maintain financial transparency." 
+  },
+  { 
+    title: 'Revenue Cycle Management', 
+    description: "End-to-end management of the revenue cycle, from scheduling to collections, for increased efficiency and profitability." 
+  },
+  { 
+    title: 'Telehealth Billing', 
+    description: "Specialized billing solutions tailored for virtual care and telehealth services, aligned with modern insurance policies." 
+  },
+];
+
 
 export const statsData = [
   { value: 98, label: "Accuracy Rate", suffix: "%" },
@@ -501,3 +423,161 @@ export const faqs = [
 
 
 // ==================================================================
+// Aboutus.tsx ============================================================
+
+  // Schema markup for organization
+ export const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "MEDOCBILLS LLC",
+    "url": "https://www.medocbills.com",
+    "logo": "https://www.medocbills.com/logo.png",
+    "description": "Premier provider of comprehensive business solutions specializing in Business Process Outsourcing (BPO), expert healthcare revenue cycle management (RCM), and results-driven digital marketing services.",
+    "foundingDate": "2025",
+    "founder": {
+      "@type": "Person",
+      "name": "Muhammad Younas Khan"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": ["English"]
+    }
+  };
+
+  // Pillars data for better maintainability
+ export const pillars = [
+    { 
+      icon: Users, 
+      title: 'Be Curious', 
+      text: 'We continuously seek better, efficient solutions and stay ahead of industry trends, especially in complex areas of healthcare coding and reimbursement.', 
+      bg: 'from-primary-medium to-primary',
+      gradient: 'bg-gradient-to-br from-primary-medium to-primary'
+    },
+    { 
+      icon: Heart, 
+      title: 'Be Empathetic', 
+      text: 'MedocBills understand the unique challenges faced by each client and tailor our BPO and RCM solutions to meet specific organizational needs.', 
+      bg: 'from-secondary to-secondary-dark',
+      gradient: 'bg-gradient-to-br from-secondary to-secondary-dark'
+    },
+    { 
+      icon: Award, 
+      title: 'Keep Promises', 
+      text: 'We are committed to delivering on our promises, ensuring transparency, timely execution, and reliable results in every service we provide.', 
+      bg: 'from-primary to-primary-dark',
+      gradient: 'bg-gradient-to-br from-primary to-primary-dark'
+    }
+  ];
+
+  // Statistics data
+ export const stats = [
+    { number: '100+', label: 'Employees', description: 'Dedicated professionals' },
+    { number: '1+', label: 'Years in Business', description: 'Industry experience' },
+    { number: '100+', label: 'Clients Dealt To', description: 'Satisfied clients' },
+    { number: '95%', label: 'Accuracy', description: 'Service precision' }
+  ];
+
+  // Solutions data
+ export const solutions = [
+    { 
+      icon: Phone, 
+      title: 'Inbound Calls', 
+      text: 'Inbound calls are essential for providing excellent customer service. MedocBills can help you improve your customer service by providing professional and efficient call handling services and patient and client satisfaction.', 
+      gradient: 'from-secondary to-secondary-dark',
+      category: 'bpo'
+    },
+    { 
+      icon: PhoneOutgoing, 
+      title: 'Outbound Calls', 
+      text: 'Outbound call centers can be a great way to reach new customers and grow your business. However, outsourcing your outbound call center operations to MedocBills can be more cost-effective and efficient solution.', 
+      gradient: 'from-secondary to-secondary-dark',
+      category: 'bpo'
+    },
+    { 
+      icon: Mail, 
+      title: 'Email and Chat Support', 
+      text: 'MedocBills LLC can help you to create and deploy effective and chat platforms. Their team of experts will help you develop marketing strategies that are beneficial and chat to engage customers and drive sales.', 
+      gradient: 'from-primary to-primary-dark',
+      category: 'digital'
+    },
+    { 
+      icon: MessageSquare, 
+      title: 'SMS Support', 
+      text: 'Small texts about their platforms are essential for engaging customers in today\'s business world. MedocBills can help you to develop and deploy SMS marketing messages, while chat platforms can be used to provide real-time customer support.', 
+      gradient: 'from-primary to-primary-dark',
+      category: 'digital'
+    }
+  ];
+
+
+// ==================================================================
+
+// Careers.tsx ======================================================
+
+  // Schema markup for job posting
+export const jobPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": jobs.map((job, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "JobPosting",
+        "title": job.title,
+        "description": `${job.category} position at MedocBills`,
+        "datePosted": new Date().toISOString().split('T')[0],
+        "validThrough": job.lastDate,
+        "employmentType": "FULL_TIME",
+        "hiringOrganization": {
+          "@type": "Organization",
+          "name": "MedocBills",
+          "sameAs": "https://www.medocbills.com"
+        },
+        "jobLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": job.location.split(',')[0],
+            "addressCountry": "US"
+          }
+        }
+      }
+    }))
+  };
+
+// =================================================================
+
+// Clients.tsx ========================================================
+
+  // Schema markup for medical billing services
+ export const medicalBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Right Medical Billing",
+    "description": "Comprehensive medical billing services for healthcare systems, specializing in Revenue Cycle Management (RCM)",
+    "url": "https://www.rightmedicalbilling.com/clients",
+    "medicalSpecialty": "Medical Billing",
+    "availableService": services.map(service => ({
+      "@type": "Service",
+      "name": service.title,
+      "description": service.description
+    })),
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+923087658325",
+      "email": "info@rightmedicalbilling.com",
+      "contactType": "customer service"
+    }
+  };
+
+  // Hero paragraphs for better maintainability
+ export const heroParagraphs = [
+    `In the last decade, hospitals have seen charges come ever more and with rising costs, shortage of trained staff, and tightening of billing regulations, RCM is here to be an extension of your team and free the time to practicing care for patients.`,
+    `Revenue Cycle Management is defined as a process of identifying errors of claims, appealing denied claims, and keeping up with patient's insurance eligibility at every touchpoint where the patient and providers intersect, resulting in smoother payment to match your healthcare system's unique requirements.`,
+    `A discerning healthcare payments lifecycle begins with admission of a patient or encounter and finishes up till all the claims are accurately paid in full. Our team gives you the authority of medical procedures, quality care, and effective revenue cycle software together.`
+  ];

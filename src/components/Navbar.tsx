@@ -50,7 +50,7 @@ const Navbar = () => {
       </nav>
 
       {/* Main navigation */}
-      <nav aria-label="Main navigation" className="flex items-center justify-between bg-white shadow-sm relative">
+      <nav aria-label="Main navigation" className="flex px-3 items-center justify-between bg-white shadow-sm relative">
         <Link to="/" className="flex items-center p-2 text-xl">
           <img src={Logo} alt="MedocBills Logo" className="h-12 w-auto" loading="lazy" />
         </Link>

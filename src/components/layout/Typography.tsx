@@ -51,7 +51,7 @@ export function Typography<T extends ElementType = 'p'>({
   size,
   weight = 'normal',
   color = 'inherit',
-  align = 'left',
+  align,
   className,
   children,
   ...rest
@@ -61,9 +61,9 @@ export function Typography<T extends ElementType = 'p'>({
     <Component
       className={mergeClass(
         variantClasses[variant],
-        weightMap[weight],  // <-- use weight here
+        weightMap[weight],  
         colorMap[color],
-        alignMap[align],
+        align && alignMap[align],
         size ?? '', 
         className
       )}
