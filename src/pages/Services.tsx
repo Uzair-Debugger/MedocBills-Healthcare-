@@ -1,12 +1,9 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
-import {
-  Activity, Users, Clock, Award,
-  Stethoscope, Shield, ChevronDown, Heart
-} from 'lucide-react';
 import type { CounterProps } from '../constants/types';
 import { servicesData, statsData, doctorsData, faqs } from '../constants/data';
 import { Container, Typography, CustomButton } from '../components/layout';
+import { IconFromData } from '../helper/IconFromData';
 
 // ─── Counter Component ──────────────────────
 const Counter = ({ value, duration = 2000, suffix = '' }: CounterProps) => {
@@ -58,7 +55,8 @@ const ServiceCard = ({ title, description, index, isVisible }: ServiceCardProps)
   >
     <div className="flex flex-col sm:flex-row items-start gap-3">
       <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
-        <Shield className="w-6 h-6 text-white" aria-hidden="true" />
+        {/* FIXED: Replaced Shield with IconFromData */}
+        <IconFromData name="Shield" className="w-6 h-6 text-white" size={24} />
       </div>
       <div className="flex-1">
         <Typography as="h3" variant="h3" color="secondary" className="mb-3 group-hover:text-secondary transition-colors">
@@ -74,16 +72,17 @@ const ServiceCard = ({ title, description, index, isVisible }: ServiceCardProps)
 
 // ─── Stat Card ─────────────────────────────
 interface StatCardProps {
-  icon: React.ComponentType<{ className?: string }>;
+  iconName: string;
   value: number;
   suffix: string;
   label: string;
 }
 
-const StatCard = ({ icon: Icon, value, suffix, label }: StatCardProps) => (
+const StatCard = ({ iconName, value, suffix, label }: StatCardProps) => (
   <div className="flex flex-col items-center justify-center transform hover:scale-110 transition-transform">
     <div className="mb-3">
-      <Icon className="w-10 h-10 text-white/80" aria-hidden="true" />
+      {/* FIXED: Replaced direct icon with IconFromData */}
+      <IconFromData name={iconName} className="w-10 h-10 text-white/80" size={40} />
     </div>
     <Typography as="h3" variant="h1" color="white" className="mb-2 text-5xl font-bold">
       <Counter value={value} suffix={suffix} />
@@ -115,7 +114,8 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => (
         </div>
         <div className="p-4 md:col-span-2 flex flex-col gap-5 justify-center bg-gradient-to-br from-white to-teal-50">
           <div className="mb-4">
-            <Heart className="w-12 h-12 text-secondary mb-3" aria-hidden="true" />
+            {/* FIXED: Replaced Heart with IconFromData */}
+            <IconFromData name="Heart" className="w-12 h-12 text-secondary" size={48} />
           </div>
           <Typography as="h3" variant="h3" color="primary">
             {doctor.name}
@@ -197,7 +197,7 @@ const DoctorsSlider = () => {
             ))}
           </div>
 
-          {/* Navigation Buttons - Hidden in original but adding for accessibility */}
+          {/* Navigation Buttons */}
           <button 
             onClick={() => { prevSlide(); handleUserInteraction(); }}
             className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 text-primary p-2 rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
@@ -259,9 +259,11 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => (
       aria-controls={`faq-answer-${faq.question.replace(/\s+/g, '-').toLowerCase()}`}
     >
       <span className="font-semibold text-gray-900">{faq.question}</span>
-      <ChevronDown 
+      {/* FIXED: Replaced ChevronDown with IconFromData */}
+      <IconFromData 
+        name="ChevronDown" 
         className={`w-5 h-5 text-gray-500 transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
-        aria-hidden="true"
+        size={20}
       />
     </button>
     <div 
@@ -313,6 +315,9 @@ const Services = () => {
     }))
   };
 
+  // Map stats icons to names
+  const statsIconNames = ['Activity', 'Users', 'Clock', 'Award'];
+
   return (
     <>
       <Helmet>
@@ -350,10 +355,11 @@ const Services = () => {
           style={{ backgroundImage: `url("data:image/svg+xml,...")` }}
         />
         <Container size="lg" className="relative z-10">
-          <Stethoscope 
+          {/* FIXED: Replaced Stethoscope with IconFromData */}
+          <IconFromData 
+            name="Stethoscope" 
             className="w-16 h-16 text-secondary mx-auto mb-4" 
-            strokeWidth={1.5}
-            aria-hidden="true"
+            size={64}
           />
           <Typography as="h2" id="services-heading" variant="h2" color="white" className="mb-3 text-center">
             OUR SERVICES
@@ -398,7 +404,7 @@ const Services = () => {
             {statsData.map((stat, i) => (
               <div key={i} role="listitem">
                 <StatCard 
-                  icon={[Activity, Users, Clock, Award][i]} 
+                  iconName={statsIconNames[i]} 
                   value={stat.value} 
                   suffix={stat.suffix} 
                   label={stat.label}

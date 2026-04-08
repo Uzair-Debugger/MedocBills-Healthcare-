@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import Logo from '../assets/logo.webp';
 import { navItems } from '../constants/data';
-import { MenuIcon, X, Phone, Mail, Instagram, Facebook, Twitter, ArrowRight } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
 import { CustomButton } from './layout/CustomButton';
+import { Icon } from '../utils/lazy-icons';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,24 +35,32 @@ const Navbar = () => {
       <nav aria-label="top navigation" className="flex bg-blue-500 text-white justify-between text-sm px-5 py-1">
         <div className="flex gap-7">
           <a href="mailto:info@medocbills.com" className="flex items-center gap-1 text-[11px]">
-            <Mail width={20} /> info@medocbills.com
+            <Icon name="Mail" width={20} /> info@medocbills.com
           </a>
           <a href="tel:5715202235" className="flex items-center gap-1 text-[11px]">
-            <Phone width={20} /> 571-520-2235
+            <Icon name="Phone" width={20} /> 571-520-2235
           </a>
         </div>
 
         <div className="hidden sm:flex gap-3">
-          <a href="#" aria-label="Instagram"><Instagram width={20} /></a>
-          <a href="#" aria-label="Facebook"><Facebook width={20} /></a>
-          <a href="#" aria-label="Twitter"><Twitter width={20} /></a>
+          <a href="#" aria-label="Instagram"><Icon name="Instagram" width={20} /></a>
+          <a href="#" aria-label="Facebook"><Icon name="Facebook" width={20} /></a>
+          <a href="#" aria-label="Twitter"><Icon name="Twitter" width={20} /></a>
         </div>
       </nav>
 
       {/* Main navigation */}
       <nav aria-label="Main navigation" className="flex px-3 items-center justify-between bg-white shadow-sm relative">
         <Link to="/" className="flex items-center p-2 text-xl">
-          <img src={Logo} alt="MedocBills Logo" className="h-12 w-auto" loading="lazy" />
+          <img 
+            src={Logo}
+            alt="MedocBills Logo"
+            className="h-12 w-auto"
+            loading="eager"
+            fetchPriority="high"
+            width="182"
+            height="48"
+          />
         </Link>
 
         {/* Desktop menu */}
@@ -74,7 +82,7 @@ const Navbar = () => {
 
           <Link to="/consultation">
             <CustomButton variant="primary" className="flex items-center gap-2 px-4 py-2">
-              Free Consultation <ArrowRight />
+              Free Consultation <Icon name="ArrowRight" />
             </CustomButton>
           </Link>
         </div>
@@ -88,7 +96,7 @@ const Navbar = () => {
           className="min-[1150px]:hidden p-2"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={32} /> : <MenuIcon size={32} />}
+          {menuOpen ? <Icon name="X" size={32} /> : <Icon name="MenuIcon" size={32} />}
         </button>
 
         {/* Mobile menu */}
@@ -117,7 +125,7 @@ const Navbar = () => {
 
           <Link to="/consultation">
             <CustomButton variant="primary" className="w-full flex justify-center items-center gap-2 px-4 py-2">
-              Free Consultation <ArrowRight />
+              Free Consultation <Icon name="ArrowRight" />
             </CustomButton>
           </Link>
         </div>

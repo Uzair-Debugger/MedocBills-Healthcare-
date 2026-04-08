@@ -14,6 +14,7 @@ import {
   slides,
 } from '../constants/data';
 import { PersonSVG } from '../constants/icons';
+import { IconFromData } from '../helper/IconFromData';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -74,12 +75,12 @@ const Hero = () => {
   return (
     <section className="flex flex-col items-center justify-center">
       {/* ── Hero Slider ─────────────────────────────── */}
-      <section 
-        aria-label="Hero slideshow" 
+      <section
+        aria-label="Hero slideshow"
         className="relative p-3 w-full bg-gradient-to-br from-teal-50 to-white overflow-hidden"
       >
         <Container size="lg" className="relative w-full pt-7 md:pt-0">
-          <div 
+          <div
             className="relative w-full min-h-[600px] sm:min-h-[650px] md:min-h-[550px]"
             role="region"
             aria-live="polite"
@@ -133,10 +134,8 @@ const Hero = () => {
             </AnimatePresence>
           </div>
 
-          
-
           {/* Slide Indicators */}
-          <div 
+          <div
             className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-20"
             role="tablist"
             aria-label="Slide navigation"
@@ -148,11 +147,10 @@ const Hero = () => {
                   setDirection(index > currentSlide ? 1 : -1);
                   setCurrentSlide(index);
                 }}
-                className={`w-2 h-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-primary ${
-                  index === currentSlide 
-                    ? 'bg-primary w-4' 
+                className={`w-2 h-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-primary ${index === currentSlide
+                    ? 'bg-primary w-4'
                     : 'bg-primary/50 hover:bg-primary/70'
-                }`}
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
                 aria-current={index === currentSlide ? 'true' : 'false'}
                 role="tab"
@@ -167,10 +165,10 @@ const Hero = () => {
         <Container size="lg" className="my-8 flex justify-center px-4 sm:my-12">
           <AnimatedSection direction="up" className="grid w-full grid-cols-1 gap-8 p-4 sm:gap-10 sm:p-5 md:grid-cols-2">
             <div className="flex flex-col gap-4 max-w-lg justify-self-center sm:gap-5 md:justify-self-start">
-              <Typography 
-                as="h2" 
+              <Typography
+                as="h2"
                 id="client-base-heading"
-                variant="h2" 
+                variant="h2"
                 color="primary"
               >
                 {clientBase.heading}
@@ -183,21 +181,22 @@ const Hero = () => {
               </CustomButton>
             </div>
 
-            <div 
+            <div
               className="grid grid-cols-2 items-center justify-center gap-3 sm:gap-4 md:grid-cols-3 md:justify-end"
               role="list"
               aria-label="Our client base includes"
             >
-              {clientBase.icons.map((IconComponent, index) => (
+              {clientBase.icons.map((iconName, index) => (
                 <div
                   key={index}
                   className="flex h-max items-center justify-center rounded-lg bg-teal-50 p-4 shadow-sm transition-shadow hover:shadow-md sm:p-5"
                   role="listitem"
                 >
-                  <IconComponent 
-                    size={40} 
+                  <IconFromData 
+                    key={index} 
+                    name={iconName} 
                     className="text-secondary sm:h-[50px] sm:w-[50px]"
-                    aria-hidden="true"
+                    size={40}
                   />
                   <span className="sr-only">Client category {index + 1}</span>
                 </div>
@@ -208,16 +207,16 @@ const Hero = () => {
       </section>
 
       {/* ── Services ─────────────────────────────── */}
-      <section 
+      <section
         aria-labelledby="services-heading"
         className="relative w-full overflow-hidden bg-secondary py-12"
       >
         <AnimatedSection direction="up" className="mx-auto max-w-7xl px-4 text-center">
-          <Typography 
-            as="h2" 
+          <Typography
+            as="h2"
             id="services-heading"
-            variant="h2" 
-            color="white" 
+            variant="h2"
+            color="white"
             className="mb-2 text-center"
           >
             Our Services
@@ -228,22 +227,27 @@ const Hero = () => {
           </Typography>
         </AnimatedSection>
 
-        <Container 
-          size="lg" 
-          grid 
+        <Container
+          size="lg"
+          grid
           className="grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 px-4"
           role="list"
           aria-label="Our services"
         >
           {whatwedo.map((service, index) => (
             <div key={index} role="listitem">
-              <AnimatedSection 
-                direction="up" 
-                delay={index * 100} 
+              <AnimatedSection
+                direction="up"
+                delay={index * 100}
                 className="flex flex-col items-start rounded-2xl bg-white p-8 shadow-lg"
               >
                 <div className="mb-6 rounded-lg bg-cyan-light p-4" aria-hidden="true">
-                  <service.icon size={40} className="text-secondary" />
+                  {/* FIXED: Changed from <service.icon /> to <IconFromData /> */}
+                  <IconFromData 
+                    name={service.icon} 
+                    size={40} 
+                    className="text-secondary"
+                  />
                 </div>
                 <Typography as="h3" variant="h3" color="primary" className="mb-4 underline decoration-cyan-accent">
                   {service.title}
@@ -258,7 +262,7 @@ const Hero = () => {
       {/* ── Why Choose / Success Rate ───────────────── */}
       <section aria-labelledby="why-choose-heading" className="w-full max-w-7xl mx-auto px-4">
         <AnimatedSection direction="left" className="flex w-full flex-col-reverse rounded-lg shadow-lg sm:p-6 md:flex-row lg:p-8">
-          <div 
+          <div
             className="flex flex-1 flex-col justify-center rounded-3xl bg-gradient-to-br from-teal-50 to-cyan-50 p-6 text-center sm:p-8 md:ml-5 md:mt-0 md:items-start"
             aria-label="Success metrics"
           >
@@ -298,16 +302,16 @@ const Hero = () => {
       <MedicalSpecialties />
 
       {/* ── Testimonials ──────────────────────────── */}
-      <section 
+      <section
         aria-labelledby="testimonials-heading"
         className="relative mt-8 flex w-full items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-primary-deep px-4 py-10 font-sans sm:mt-10 sm:py-12 md:py-16"
       >
-        <div 
-          className="pointer-events-none absolute inset-0 opacity-10" 
+        <div
+          className="pointer-events-none absolute inset-0 opacity-10"
           aria-hidden="true"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }} 
+          }}
         />
 
         <div className="relative z-10 flex w-full max-w-7xl flex-col items-center justify-center p-4 text-center text-white sm:p-6 md:p-8">
@@ -316,7 +320,7 @@ const Hero = () => {
           </Typography>
 
           <div className="relative flex w-full max-w-4xl flex-col items-center">
-            <div 
+            <div
               className="mb-8 px-10 text-base italic leading-relaxed sm:mb-10 sm:px-14 sm:text-lg md:px-20 md:text-xl"
               role="region"
               aria-live="polite"

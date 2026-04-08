@@ -1,12 +1,12 @@
 import React from 'react';
 import { medicalBusinessSchema, heroParagraphs } from '../constants/data';
 import { Helmet } from 'react-helmet-async';
-import { Building2, Calendar, Phone, CheckCircle2 } from 'lucide-react';
 import { services, rcmSteps, whyChoose, keyPoints } from '../constants/data';
 import { AnimatedSection } from '../components/Animation';
 import { Typography } from '../components/layout';
 import { Container } from '../components/layout/Container';
 import { CustomButton } from '../components/layout';
+import { IconFromData } from '../helper/IconFromData';
 
 export default function ClientsPage() {
 
@@ -100,7 +100,8 @@ export default function ClientsPage() {
                 <aside className="w-full lg:w-80 space-y-4" aria-label="Client information and appointment">
                   <AnimatedSection direction="right">
                     <div className="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary text-center">
-                      <Building2 className="w-16 h-16 text-primary mx-auto mb-4" aria-hidden="true" />
+                      {/* FIXED: Replaced Building2 with IconFromData */}
+                      <IconFromData name="Building2" className="w-16 h-16 text-primary mx-auto mb-4" size={64} />
                       <Typography as="h2" variant="h5" weight="bold">
                         Our Clients
                       </Typography>
@@ -121,7 +122,8 @@ export default function ClientsPage() {
                       
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 text-sm text-gray-700">
-                          <Phone className="w-4 h-4 text-secondary" aria-hidden="true" />
+                          {/* FIXED: Replaced Phone with IconFromData */}
+                          <IconFromData name="Phone" className="w-4 h-4 text-secondary" size={16} />
                           <Typography as="span" size="sm">Phone Number</Typography>
                         </div>
                         <Typography as="p" size="sm" className="text-gray-600">
@@ -131,7 +133,8 @@ export default function ClientsPage() {
 
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 text-sm text-gray-700">
-                          <Calendar className="w-4 h-4 text-secondary" aria-hidden="true" />
+                          {/* FIXED: Replaced Calendar with IconFromData */}
+                          <IconFromData name="Calendar" className="w-4 h-4 text-secondary" size={16} />
                           <Typography as="span" size="sm">Medical Coding & Billing</Typography>
                         </div>
                         <Typography as="p" size="sm" className="text-gray-600">
@@ -215,7 +218,8 @@ export default function ClientsPage() {
                     className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-gray-200"
                     role="listitem"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-1" aria-hidden="true" />
+                    {/* FIXED: Replaced CheckCircle2 with IconFromData */}
+                    <IconFromData name="CheckCircle2" className="w-5 h-5 text-secondary flex-shrink-0 mt-1" size={20} />
                     <Typography as="span" size="sm" className="text-gray-700">
                       {step}
                     </Typography>
@@ -260,7 +264,8 @@ export default function ClientsPage() {
                 >
                   {whyChoose.map((item, index) => (
                     <div key={index} className="flex items-center gap-3" role="listitem">
-                      <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0" aria-hidden="true" />
+                      {/* FIXED: Replaced CheckCircle2 with IconFromData */}
+                      <IconFromData name="CheckCircle2" className="w-5 h-5 text-secondary flex-shrink-0" size={20} />
                       <Typography as="span" size="sm" className="text-white/90">
                         {item}
                       </Typography>
@@ -296,7 +301,8 @@ export default function ClientsPage() {
                     className="flex items-start gap-3 bg-gray-50 p-4 rounded-lg border-l-4 border-secondary"
                     role="listitem"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-1" aria-hidden="true" />
+                    {/* FIXED: Replaced CheckCircle2 with IconFromData */}
+                    <IconFromData name="CheckCircle2" className="w-5 h-5 text-secondary flex-shrink-0 mt-1" size={20} />
                     <Typography as="span" size="sm" className="text-gray-700">
                       {point}
                     </Typography>

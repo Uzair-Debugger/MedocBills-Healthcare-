@@ -1,9 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { organizationSchema, pillars, stats, solutions } from '../constants/data';
-import { Users, Heart, Award, Phone, PhoneOutgoing, Mail, MessageSquare } from 'lucide-react';
 import { AnimatedSection } from '../components/Animation';
 import { Container, Typography, CustomButton } from '../components/layout';
+import { IconFromData } from '../helper/IconFromData';
 
 export default function AboutUs() {
 
@@ -72,7 +72,8 @@ export default function AboutUs() {
             <AnimatedSection direction="left">
               <div className="flex flex-col md:flex-row items-center gap-8 bg-white p-8 rounded-lg shadow-sm">
                 <div className="w-48 h-48 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex-shrink-0 flex items-center justify-center">
-                  <Users className="w-24 h-24 text-white" aria-hidden="true" />
+                  {/* FIXED: Replaced Users with IconFromData */}
+                  <IconFromData name="Users" className="w-24 h-24 text-white" size={96} />
                 </div>
                 <div className="flex-1">
                   <Typography as="h2" id="leadership-heading" variant="h3" weight="bold" className="mb-4">
@@ -112,7 +113,8 @@ export default function AboutUs() {
                 <AnimatedSection key={idx} direction="left" delay={idx * 200}>
                   <article className="text-center" role="listitem">
                     <div className={`w-16 h-16 rounded-lg mx-auto mb-4 flex items-center justify-center ${pillar.gradient}`}>
-                      <pillar.icon className="w-8 h-8 text-white" aria-hidden="true" />
+                      {/* FIXED: Using IconFromData for pillar icons (pillar.icon is now a string) */}
+                      <IconFromData name={pillar.icon as string} className="w-8 h-8 text-white" size={32} />
                     </div>
                     <Typography as="h3" variant="h5" weight="bold" className="mb-3">{pillar.title}</Typography>
                     <Typography as="p" size="sm" className="text-gray-600 leading-relaxed">{pillar.text}</Typography>
@@ -205,7 +207,8 @@ export default function AboutUs() {
                 <AnimatedSection key={idx} direction={idx % 2 === 0 ? 'left' : 'right'} delay={0}>
                   <article className="bg-white p-6 rounded-lg shadow-sm" role="listitem">
                     <div className={`w-16 h-16 rounded-lg mb-4 flex items-center justify-center bg-gradient-to-br ${solution.gradient}`}>
-                      <solution.icon className="w-8 h-8 text-white" aria-hidden="true" />
+                      {/* FIXED: Using IconFromData for solution icons (solution.icon is now a string) */}
+                      <IconFromData name={solution.icon as string} className="w-8 h-8 text-white" size={32} />
                     </div>
                     <Typography as="h3" variant="h5" weight="bold" className="mb-3">{solution.title}</Typography>
                     <Typography as="p" size="sm" className="text-gray-600 mb-4">{solution.text}</Typography>
