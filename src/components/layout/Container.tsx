@@ -1,12 +1,15 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, HTMLAttributes } from 'react';
 import { mergeClass } from '../../utils/classUtils';
 import type { ContainerSize } from '../../constants/types';
 
-
-interface ContainerProps {
+interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   size?: ContainerSize;
   className?: string;
   children: ReactNode;
+  flex?: boolean;
+  grid?: boolean;
+  justify?: 'center' | 'start' | 'end' | 'between';
+  items?: 'center' | 'start' | 'end';
 }
 
 const sizeMap: Record<ContainerSize, string> = {
@@ -17,9 +20,29 @@ const sizeMap: Record<ContainerSize, string> = {
   full: 'max-w-full',
 };
 
-export function Container({ size = 'lg', className, children }: ContainerProps) {
+export function Container({
+  size = 'lg',
+  className,
+  children,
+  flex,
+  grid,
+  justify,
+  items,
+  ...rest
+}: ContainerProps) {
   return (
-    <div className={mergeClass('mx-auto px-4 sm:px-6 lg:px-8', sizeMap[size], className)}>
+    <div
+      className={mergeClass(
+        'mx-auto max-w-7xl',
+        sizeMap[size],
+        flex ? 'flex' : '',
+        grid ? 'grid' : '',
+        justify ? `justify-${justify}` : '',
+        items ? `items-${items}` : '',
+        className
+      )}
+      {...rest} // allows role, aria-* or other div props
+    >
       {children}
     </div>
   );
