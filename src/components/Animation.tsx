@@ -38,7 +38,7 @@ export const AnimatedSection = ({ children, delay = 0, direction = 'left' }:any)
   };
 
   return (
-    <div
+    <section
       ref={sectionRef}
       style={{
         opacity: isVisible ? 1 : 0,
@@ -47,6 +47,6 @@ export const AnimatedSection = ({ children, delay = 0, direction = 'left' }:any)
       }}
     >
       {children}
-    </div>
+    </section>
   );
 };

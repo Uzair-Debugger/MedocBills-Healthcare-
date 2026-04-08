@@ -47,7 +47,7 @@ const AnimatedSection = ({ children, delay = 0, direction = 'left', className = 
   };
 
   return (
-    <div
+    <section
       ref={sectionRef}
       className={mergeClass(className)}
       style={{
@@ -57,7 +57,7 @@ const AnimatedSection = ({ children, delay = 0, direction = 'left', className = 
       }}
     >
       {children}
-    </div>
+    </section>
   );
 };
 
