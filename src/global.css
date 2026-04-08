@@ -33,3 +33,16 @@ h6 {
 .c_green {
   color: var(--color-secondary);
 }
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  background-color: white;
+  color: #1f2937; /* gray-800 */
+  outline: none;
+}
+
+.input::placeholder {
+  color: #6b7280; /* gray-500 */
+}

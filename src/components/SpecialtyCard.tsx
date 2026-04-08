@@ -1,21 +1,30 @@
-// SpecialtyCard.tsx
-import type { ComponentType, SVGProps } from 'react';
+import { memo, ComponentType, SVGProps } from 'react';
 
 interface SpecialtyCardProps {
   title: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
+  href: string;
 }
 
-const SpecialtyCard = ({ icon: Icon, title }: SpecialtyCardProps) => {
+const SpecialtyCard = ({ icon: Icon, title, href }: SpecialtyCardProps) => {
   return (
-    <div className="flex flex-col items-center justify-center p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white cursor-pointer min-h-[180px]">
-      <div className="text-4xl text-blue-600 mb-4">
-        {/* Placeholder for the icon. In a real app, 'Icon' would be an imported React component (e.g., from 'react-icons') */}
-        <Icon className="w-12 h-12 maroon" />
+    <a
+      href={href}
+      className="flex flex-col items-center justify-center p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary transition bg-white min-h-[180px]"
+    >
+      <div className="mb-4">
+        <Icon 
+          className="w-12 h-12 maroon"
+          aria-hidden="true"
+          focusable="false"
+        />
       </div>
-      <p className="text-lg font-semibold c_green text-center">{title}</p>
-    </div>
+
+      <h3 className="text-lg font-semibold c_green text-center">
+        {title}
+      </h3>
+    </a>
   );
 };
 
-export default SpecialtyCard;
+export default memo(SpecialtyCard);

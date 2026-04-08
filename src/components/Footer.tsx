@@ -1,164 +1,149 @@
-import type { ChangeEvent } from 'react';
-import { useState } from 'react';
+import { useState, useCallback, ChangeEvent, FormEvent } from 'react';
 import logo from '../assets/logo.webp';
 import { Facebook, Linkedin, Youtube, Phone, Mail, MapPin } from 'lucide-react';
 import { Container, Typography, CustomButton } from './layout';
 
 export default function Footer() {
-  const [email, setEmail] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = () => {
-    if (email && message) {
-      alert('Message sent successfully!');
-      setEmail('');
-      setMessage('');
-    } else {
+  const handleSubmit = useCallback((e: FormEvent) => {
+    e.preventDefault();
+
+    if (!email || !message) {
       alert('Please fill in all fields');
+      return;
     }
-  };
+
+    alert('Message sent successfully!');
+    setEmail('');
+    setMessage('');
+  }, [email, message]);
 
   return (
     <footer className="bg-soft-pink text-black py-12">
       <Container size="lg" className="px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-        {/* Left Column - Logo & Social */}
-        <div className="border-2 border-secondary rounded-lg p-5">
-          <img
-            src={logo}
-            alt="MedocBills Logo"
-            className="h-12 w-auto mx-auto mb-4"
-            loading='lazy'
-          />
-
-          <p className="font-light text-sm text-center mb-5">
-            Medocbills has been helping healthcare providers increase collections,
-            reduce expenses, and streamline workflows with a highly experienced team.
-          </p>
-
-          <div className="flex justify-center gap-3">
-            <a className="w-9 h-9 cursor-pointer bg-secondary rounded-full flex items-center justify-center hover:bg-secondary-dark transition">
-              <Facebook size={18} color="white" />
-            </a>
-            <a className="w-9 h-9 cursor-pointer bg-secondary rounded-full flex items-center justify-center hover:bg-secondary-dark transition">
-              <Linkedin size={18} color="white" />
-            </a>
-            <a className="w-9 h-9 cursor-pointer bg-secondary rounded-full flex items-center justify-center hover:bg-secondary-dark transition">
-              <Youtube size={18} color="white" />
-            </a>
-          </div>
-        </div>
-
-        {/* Column 2 - Proudly Serving */}
-        <div>
-          <Typography as="h3" variant="h3" className="mb-4">
-            Proudly Serving
-          </Typography>
-          <ul className="space-y-2 text-primary font-light">
-            {[
-              'Private Practices',
-              'Individual Doctor Office',
-              'Clinics & Imaging Centers',
-              'Hospitals',
-              'Healthcare Systems',
-              'Urgent Care Centers',
-              'Emergency Rooms',
-            ].map((item) => (
-              <li
-                key={item}
-                className="hover:text-secondary transition cursor-pointer"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Column 3 - Business Hours */}
-        <div>
-          <h3 className="text-xl font-bold mb-4">Business Hours</h3>
-          <div className="space-y-4 text-neutral-700">
-            <div>
-              <p className="font-semibold">Monday – Friday</p>
-              <p className="text-primary">8:30 AM – 5:00 PM</p>
-            </div>
-            <div>
-              <p className="font-semibold">Saturday & Sunday</p>
-              <p className="text-primary">Closed</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Column 4 - Quick Contact + Address */}
-        <div>
-          <h3 className="text-xl font-bold mb-4">Quick Contact</h3>
-
-          {/* Contact Form */}
-          <div className="space-y-4 mb-6">
-            <input
-              type="email"
-              placeholder="Your Email"
-              value={email}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          {/* Logo Section */}
+          <div className="border-2 border-secondary rounded-lg p-5 text-center">
+            <img
+              src={logo}
+              alt="MedocBills company logo"
+              className="h-12 w-auto mx-auto mb-4"
+              loading="lazy"
             />
 
-            <textarea
-              placeholder="Message"
-              value={message}
-              onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
-              rows={4}
-              className="w-full px-4 py-3 rounded bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 resize-none"
-            />
+            <p className="font-light text-sm mb-5">
+              Medocbills helps healthcare providers increase collections,
+              reduce expenses, and streamline workflows.
+            </p>
 
-            <CustomButton
-              type="button"
-              onClick={handleSubmit}
-              variant="secondary"
-              className="w-full"
-            >
-              Send Message
-            </CustomButton>
+            <div className="flex justify-center gap-3">
+              <a href="#" aria-label="Visit our Facebook page" className="icon-btn">
+                <Facebook size={18} />
+              </a>
+              <a href="#" aria-label="Visit our LinkedIn page" className="icon-btn">
+                <Linkedin size={18} />
+              </a>
+              <a href="#" aria-label="Visit our YouTube channel" className="icon-btn">
+                <Youtube size={18} />
+              </a>
+            </div>
           </div>
 
-          {/* Divider */}
-          <div className="border-t border-gray-300 my-6"></div>
+          {/* Services */}
+          <nav aria-label="Services">
+            <Typography as="h3" variant="h3" className="mb-4">
+              Proudly Serving
+            </Typography>
 
-          {/* Contact Details */}
-          <div>
-            <h4 className="text-lg font-bold mb-4">Contact Details</h4>
+            <ul className="space-y-2 text-primary font-light">
+              {[
+                'Private Practices',
+                'Individual Doctor Office',
+                'Clinics & Imaging Centers',
+                'Hospitals',
+                'Healthcare Systems',
+                'Urgent Care Centers',
+                'Emergency Rooms',
+              ].map((item) => (
+                <li key={item}>
+                  <a href="#" className="hover:text-secondary transition">
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-            <div className="space-y-4 text-sm text-neutral-700">
-              <div className="flex items-start gap-3">
-                <Phone size={18} className="text-secondary mt-1" />
-                <a href="tel:571-520-2235" className="hover:text-secondary transition">
-                  571-520-2235
-                </a>
+          {/* Business Hours */}
+          <section>
+            <h3 className="text-xl font-bold mb-4">Business Hours</h3>
+
+            <p><strong>Monday – Friday:</strong> 8:30 AM – 5:00 PM</p>
+            <p><strong>Saturday & Sunday:</strong> Closed</p>
+          </section>
+
+          {/* Contact */}
+          <section>
+            <h3 className="text-xl font-bold mb-4">Quick Contact</h3>
+
+            <form onSubmit={handleSubmit} className="space-y-4 mb-6">
+              <div>
+                <label htmlFor="email" className="sr-only">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Your Email"
+                  value={email}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                  required
+                  className="input"
+                />
               </div>
 
-              <div className="flex items-start gap-3">
-                <Mail size={18} className="text-secondary mt-1" />
-                <a
-                  href="mailto:info@medocbills.com"
-                  className="hover:text-secondary transition break-all"
-                >
-                  info@medocbills.com
-                </a>
+              <div>
+                <label htmlFor="message" className="sr-only">Message</label>
+                <textarea
+                  id="message"
+                  placeholder="Message"
+                  value={message}
+                  onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
+                  rows={4}
+                  required
+                  className="input resize-none"
+                />
               </div>
 
-              <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-secondary mt-1" />
-                <address className="not-italic leading-relaxed">
-                  835 Wilshire Blvd<br />
-                  Ste 500 #513<br />
+              <CustomButton type="submit" variant="secondary" className="w-full">
+                Send Message
+              </CustomButton>
+            </form>
+
+            <div className="border-t my-6" />
+
+            <address className="not-italic space-y-3 text-sm">
+              <div className="flex gap-2">
+                <Phone size={18} />
+                <a href="tel:5715202235">571-520-2235</a>
+              </div>
+
+              <div className="flex gap-2">
+                <Mail size={18} />
+                <a href="mailto:info@medocbills.com">info@medocbills.com</a>
+              </div>
+
+              <div className="flex gap-2">
+                <MapPin size={18} />
+                <span>
+                  835 Wilshire Blvd, Ste 500 #513,
                   Los Angeles, CA 90017
-                </address>
+                </span>
               </div>
-            </div>
-          </div>
+            </address>
+          </section>
         </div>
-      </div>
       </Container>
     </footer>
   );
