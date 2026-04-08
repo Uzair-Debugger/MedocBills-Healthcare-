@@ -1,9 +1,9 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Search, MapPin, Calendar } from 'lucide-react';
 import { jobs } from '../constants/data';
 import { Container, Typography } from '../components/layout';
 import { jobPostingSchema } from '../constants/data';
+import { IconFromData } from '../helper/IconFromData';
 
 export default function CareerPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -93,9 +93,11 @@ export default function CareerPage() {
                   autoComplete="off"
                 />
 
-                <Search
+                {/* FIXED: Replaced Search with IconFromData */}
+                <IconFromData
+                  name="Search"
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none"
-                  aria-hidden="true"
+                  size={20}
                 />
               </div>
               
@@ -182,12 +184,14 @@ export default function CareerPage() {
 
                   <div className="space-y-2">
                     <div className="flex items-start gap-2 text-sm text-gray-700 group-hover:text-gray-200 transition-colors duration-300">
-                      <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
+                      {/* FIXED: Replaced MapPin with IconFromData */}
+                      <IconFromData name="MapPin" className="w-4 h-4 mt-0.5 flex-shrink-0" size={16} />
                       <span>{job.location}</span>
                     </div>
 
                     <div className="flex items-center gap-2 text-sm">
-                      <Calendar className="w-4 h-4 flex-shrink-0 text-gray-700 group-hover:text-gray-200 transition-colors duration-300" aria-hidden="true" />
+                      {/* FIXED: Replaced Calendar with IconFromData */}
+                      <IconFromData name="Calendar" className="w-4 h-4 flex-shrink-0" size={16} />
                       
                       <Typography
                         as="span"

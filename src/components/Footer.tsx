@@ -1,7 +1,7 @@
 import { useState, useCallback, ChangeEvent, FormEvent } from 'react';
 import logo from '../assets/logo.webp';
-import { Facebook, Linkedin, Youtube, Phone, Mail, MapPin } from 'lucide-react';
 import { Container, Typography, CustomButton } from './layout';
+import { IconFromData } from '../helper/IconFromData';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -29,9 +29,13 @@ export default function Footer() {
           <div className="border-2 border-secondary rounded-lg p-5 text-center">
             <img
               src={logo}
+              srcSet={`${logo} 1x`}
               alt="MedocBills company logo"
               className="h-12 w-auto mx-auto mb-4"
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
+              width="182"
+              height="48"
             />
 
             <p className="font-light text-sm mb-5">
@@ -41,13 +45,16 @@ export default function Footer() {
 
             <div className="flex justify-center gap-3">
               <a href="#" aria-label="Visit our Facebook page" className="icon-btn">
-                <Facebook size={18} />
+                {/* FIXED: Replaced Facebook with IconFromData */}
+                <IconFromData name="Facebook" size={18} />
               </a>
               <a href="#" aria-label="Visit our LinkedIn page" className="icon-btn">
-                <Linkedin size={18} />
+                {/* FIXED: Replaced Linkedin with IconFromData */}
+                <IconFromData name="Linkedin" size={18} />
               </a>
               <a href="#" aria-label="Visit our YouTube channel" className="icon-btn">
-                <Youtube size={18} />
+                {/* FIXED: Replaced Youtube with IconFromData */}
+                <IconFromData name="Youtube" size={18} />
               </a>
             </div>
           </div>
@@ -125,17 +132,20 @@ export default function Footer() {
 
             <address className="not-italic space-y-3 text-sm">
               <div className="flex gap-2">
-                <Phone size={18} />
+                {/* FIXED: Replaced Phone with IconFromData */}
+                <IconFromData name="Phone" size={18} />
                 <a href="tel:5715202235">571-520-2235</a>
               </div>
 
               <div className="flex gap-2">
-                <Mail size={18} />
+                {/* FIXED: Replaced Mail with IconFromData */}
+                <IconFromData name="Mail" size={18} />
                 <a href="mailto:info@medocbills.com">info@medocbills.com</a>
               </div>
 
               <div className="flex gap-2">
-                <MapPin size={18} />
+                {/* FIXED: Replaced MapPin with IconFromData */}
+                <IconFromData name="MapPin" size={18} />
                 <span>
                   835 Wilshire Blvd, Ste 500 #513,
                   Los Angeles, CA 90017
