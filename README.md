@@ -1,84 +1,155 @@
-# MedocBills Healthcare - Modern React Application
+# MedocBills Healthcare
 
-![Project Badge](https://img.shields.io/badge/Status-Active-success)
-![React](https://img.shields.io/badge/React-18-blue)
-![Vite](https://img.shields.io/badge/Vite-Ready-purple)
-![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38B2AC)
-![License](https://img.shields.io/badge/license-MIT-green)
+Modern healthcare revenue cycle management and medical billing website built with React, Vite, and Tailwind CSS.
 
-A high-performance, responsive healthcare platform built with modern web technologies. This project demonstrates scalable architecture, clean code practices, and a focus on user experience through smooth animations and intuitive design.
+## Live Demo
 
-## 🚀 Features
+- Website: [www.medocbills.com](https://www.medocbills.com)
 
-- **Modern Tech Stack**: Built with React 18, utilizing functional components and hooks.
-- **Lightning Fast**: Powered by Vite for instant HMR and optimized production builds.
-- **Responsive Design**: Fully responsive UI crafted with Tailwind CSS v4.
-- **Smooth Animations**: Interactive elements powered by Framer Motion.
-- **SEO Optimized**: Meta tag management using React Helmet Async.
-- **Toast Notifications**: User feedback via React Toastify.
-- **Clean Architecture**: Modular component structure for scalability and maintainability.
+## Preview
 
-## 🛠️ Tech Stack
+![MedocBills Main Page](public/main.png)
 
-*   **Frontend Framework**: [React](https://reactjs.org/)
-*   **Build Tool**: [Vite](https://vitejs.dev/)
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-*   **Routing**: [React Router DOM](https://reactrouter.com/)
-*   **Icons**: [Lucide React](https://lucide.dev/) & [Heroicons](https://heroicons.com/)
-*   **Animations**: [Framer Motion](https://www.framer.com/motion/)
+## Project Description
 
-## 🏗️ Project Structure
+MedocBills is a frontend web application for a medical billing and healthcare revenue management company.  
+It presents billing, coding, credentialing, compliance, and RCM service offerings, along with trust-building content such as success metrics, testimonials, medical specialties coverage, client-focused workflows, and career opportunities.
 
-```bash
-src/
-├── components/   # Reusable UI components (Navbar, Footer, etc.)
-├── pages/        # Application views (Hero, Services, Contact, etc.)
-├── App.jsx       # Main application entry and routing
-├── main.jsx      # DOM rendering and provider setup
-└── ...
-```
+The project is implemented as a single-page React app with route-based pages, SEO metadata management, and reusable UI components for a responsive, animation-rich user experience.
 
-## 🚀 Getting Started
+## Key Features
 
-Follow these steps to set up the project locally.
+- 🧭 Multi-page SPA routing for Home, Services, Contact, About, Career, and Clients pages
+- 🏥 Healthcare/RCM-focused service presentation (billing, coding, credentialing, VOB, prior auth, patient billing)
+- 🎞️ Interactive UI with hero sliders, testimonial carousel, animated sections, and counters
+- 📬 Contact and callback forms with client-side validation and submission states
+- 💼 Career portal with live search/filter across job listings
+- 🩺 Medical specialties grid and healthcare-system-focused RCM process sections
+- 🔍 SEO implementation with per-page meta tags, canonical URLs, Open Graph/Twitter tags
+- 🧠 Structured data (JSON-LD) for organization, FAQ, medical business, and job postings
+- 📱 Responsive navigation with mobile menu behavior and accessible UI semantics
+- 🚀 Production build optimizations via Vite + Terser + vendor chunk splitting
+
+## Tech Stack
+
+### Core Framework
+- `react`
+- `react-dom`
+- `react-router-dom`
+- `typescript`
+- `vite`
+
+### UI, Styling, and Motion
+- `tailwindcss`
+- `@tailwindcss/vite`
+- `framer-motion`
+- `lucide-react`
+- `@heroicons/react`
+- `clsx`
+- `tailwind-merge`
+
+### SEO and UX Utilities
+- `react-helmet-async`
+- `react-toastify`
+
+### Build, Lint, and Tooling
+- `@vitejs/plugin-react`
+- `vite-bundle-analyzer`
+- `terser`
+- `eslint`
+- `@eslint/js`
+- `eslint-plugin-react-hooks`
+- `eslint-plugin-react-refresh`
+- `globals`
+- `@types/react`
+- `@types/react-dom`
+- `@types/node`
+- `@types/react-helmet-async`
+
+
+## Getting Started
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- npm or yarn
+- Node.js 18+ (recommended)
+- npm
 
 ### Installation
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/yourusername/MedocBills-Healthcare.git
-    cd MedocBills-Healthcare
-    ```
+```bash
+npm install
+```
 
-2.  **Install dependencies**
-    ```bash
-    npm install
-    # or
-    yarn install
-    ```
+### Run Development Server
 
-3.  **Run the development server**
-    ```bash
-    npm run dev
-    # or
-    yarn dev
-    ```
+```bash
+npm run dev
+```
 
-    Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
+App runs on the Vite default local URL (typically `http://localhost:5173`).
 
-## 🌟 Developer's Note
+### Production Build
 
-This project was architected with a focus on:
-*   **Component Reusability**: Breaking down the UI into atomic, reusable pieces.
-*   **Performance**: Minimizing re-renders and optimizing bundle size.
-*   **User Experience**: Ensuring accessibility and smooth interactions.
+```bash
+npm run build
+```
 
-It serves as a demonstration of my ability to deliver production-ready code that meets modern web standards.
+### Preview Production Build
 
----
-*Built with ❤️ by Syed Muhammad Uzair*
+```bash
+npm run preview
+```
+
+## Available Scripts
+
+From `package.json`:
+
+- `npm run dev` - start Vite dev server
+- `npm run build` - install dependencies (`--legacy-peer-deps`) and create production build
+- `npm run lint` - run ESLint on the project
+- `npm run preview` - preview the built app locally
+
+> Note: `npm start` is not currently defined in this project.
+
+## Deployment
+
+This project is configured for **Vercel** deployment.
+
+### Current Hosting Configuration
+
+Defined in `vercel.json`:
+
+- Framework: `vite`
+- Install command: `npm install --force`
+- Build command: `npm install --force && npm run build`
+- Output directory: `dist`
+- SPA rewrites enabled: all routes rewrite to `/` for client-side routing
+
+### Deploy Steps (Vercel)
+
+1. Push the repository to GitHub/GitLab/Bitbucket.
+2. Import the project in Vercel.
+3. Vercel detects `vercel.json` and applies the custom commands automatically.
+4. Deploy and verify routes such as `/services`, `/about`, `/career`, `/clients`.
+
+## Screenshots
+
+
+- Main homepage preview:
+
+![Main Homepage](public/main.png)
+
+
+## Contributing
+
+Contributions are welcome.
+
+1. Fork the repository.
+2. Create a feature branch (`feature/your-feature-name`).
+3. Commit clear, scoped changes.
+4. Run checks before opening a PR:
+   - `npm run lint`
+   - `npm run build`
+5. Open a pull request with a concise summary and test notes.
+
+> **Made with ❤️ by Syed Muhammad Uzair**
